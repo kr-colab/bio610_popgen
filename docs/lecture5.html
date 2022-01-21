@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Molecular Evolution &#8212; Bio 610-- Intro to Population Genetics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Genetic Drift" href="lecture4.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tree.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Bio 610-- Intro to Population Genetics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to Population Genetics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introductory Material
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1.html">
+   Introduction to Population Genetics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2.html">
+   Natural Selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3.html">
+   Mutation, Migration, with and without selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4.html">
+   Genetic Drift
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Molecular Evolution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture5.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture5.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Molecular Evolution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rates-of-molecular-evolution">
+   Rates of Molecular Evolution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#molecular-clocks">
+   Molecular Clocks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polymorphism-and-divergence">
+   Polymorphism and Divergence
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="molecular-evolution">
+<h1>Molecular Evolution<a class="headerlink" href="#molecular-evolution" title="Permalink to this headline">¶</a></h1>
+<p>So far we’ve focused mainly on the impact of evolutionary forces on
+patterns of genetic variation within populations and species. Now lets
+shift our attention to how those forces translate to genetic and genomic
+differences between species.</p>
+</div>
+<div class="section" id="rates-of-molecular-evolution">
+<h1>Rates of Molecular Evolution<a class="headerlink" href="#rates-of-molecular-evolution" title="Permalink to this headline">¶</a></h1>
+<p>The basic quantity in the study of molecular evolution is sequence
+divergence, or the number of differences between two species at some
+locus. The basic “work flow” for this kind of study goes something like
+this</p>
+<ul class="simple">
+<li><p>Sequence some locus out of two species (e.g. CFTR from a human and
+from a chimp)</p></li>
+<li><p>Align those sequences (this is actually a technical process, but the
+basic idea is to find molecular homology)</p></li>
+<li><p>Count the number of differences between sequences in the alignment</p></li>
+</ul>
+<p>This count of the number of differences will be the raw data.
+Conventionally, the next thing that is done is to express the number of
+differences on a per site basis. This gets us to a quantity most often
+called sequence divergence. This isn’t of course necessary, but it is
+convenient as some loci are bigger than others, thus normalization on
+the basis of the individual site allows one to come levels of sequence
+divergence from different genes or different portions of the genome.</p>
+<p>As an example lets consider an an amino acid alignment of mammalian
+sequences from a locus known as <em>FOXP2</em> (<a class="reference internal" href="#foxp"><span class="std std-numref">Fig. 7</span></a>) This alignment
+consist of 716 amino acid residues from human, chimp, gorilla,
+orangutan, rhesus macaque, and a mouse outgroup. Let’s focus our
+attention to human-chimp differences specifically. In this alignment we
+see 2 simple amino acid differences and one possible insertion/deletion
+difference. We’ll ignore the insertion/deletion difference for the
+remainder of this analysis; this is actually common practice in
+molecular evolution studies, can you figure out why?</p>
+<p>If we assume that humans and chimps diverged (i.e. became separate
+species) from one another approximately 5 million years ago and that
+there were 2 substitutions along the two lineages in that time, then the
+rate of substitution at the <em>FOXP2</em> locus is</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \rho = \frac{2}{2 \times 5,000,000} = 2 \times 10^{-7} \mbox{ substitutions / year}
+\end{aligned}\]</div>
+<p>We need to multiply by two because each of our substitutions might have
+taken place on either the lineage leading to humans or the lineage
+leading to chimps. We of course could use the multiple alignment data in
+Figure 1 to reconstruct ancestral states, and figure out along which
+lineage those differences were most likely to occur, but we’ll ignore
+that complexity for now.</p>
+<p>It’s often convenient to express rates of substitution on a per site
+basis. This allows us to simply compare rates at different loci, or in
+different portions of the genome. In this case we have aligned 716 aa
+sites, so our per site calculation is</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \rho = \frac{2 \times 10^{-7}}{716} = 2.8 \times 10^{-10} \mbox{ substitutions / year / site}.
+\end{aligned}\]</div>
+<p>Believe it or not this is a pretty typical rate of protein evolution. As
+we proceed into this next section be careful about units- we’ll be
+developing a simple theoretical model as to what rates of substitution
+should be that are based on generations as the unit time and not years.
+This can actually lead to a surprising amount of confusion (even among
+“professionals”!) so let’s be sure to get everything straight.</p>
+<div class="figure align-default" id="foxp">
+<img alt="_images/foxp2.png" src="_images/foxp2.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text"><strong>Multiple Alignment of the <em>FOXP2</em> gene.</strong> 6 mammalian amino acid
+sequences of the <em>FOXP2</em> locus are shown. 716 aa sites are represented.
+We can see 2 simple amino acid differences between human and chimp in
+this alignment and 1 insertion/deletion difference. This figure is
+adapted from Enard et al. (2002).</span><a class="headerlink" href="#foxp" title="Permalink to this image">¶</a></p>
+</div>
+<p>Consider a finite, diploid population that evolves only due to drift and
+mutation. Substitutions will occur in this population because some
+fraction of the mutations which enter the population every generation
+will ultimately drift to frequency one, thus fixing in the population.
+Thus intuitively we should see that the rate of substitution will be a
+function of the mutation rate and the population size.</p>
+<p>Let’s define <span class="math notranslate nohighlight">\(u\)</span> to be our probability of mutation per gamete per
+generation. If there are <span class="math notranslate nohighlight">\(2N\)</span> gametes produced in our population each
+generation that on average we should have <span class="math notranslate nohighlight">\(2Nu\)</span> mutations. In larger
+populations we should have more mutations entering each generation, and
+conversely smaller populations should have less mutational input if we
+hold <span class="math notranslate nohighlight">\(u\)</span> to be fixed. Naively we might then expect evolution (i.e.
+substitution) to proceed faster in larger populations, and this is true
+in some contexts, but not in our purely neutral population.</p>
+<p>Under neutrality, each of our <span class="math notranslate nohighlight">\(2Nu\)</span> new mutations should be equally
+likely to fix. As we have proven early, the probability of any of those
+mutations fixing is simply equal to its frequency, which for new
+mutations in a diploid population is <span class="math notranslate nohighlight">\(1/(2N)\)</span>. We are now ready to
+calculate the rate of substitution in our neutral population. The rate
+of substitution should be equal to the number of new mutations entering
+the population each generation times the probability that each of them
+fix. That is</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \rho = 2Nu \times \frac{1}{2N} = u
+\end{aligned}\]</div>
+<p>So the
+substitution rate of our neutral population is just equal to the
+mutation rate. This is an amazing result from population genetics which
+at first blush is counterintuitive. Shouldn’t fixation that are the
+result of drift be dependent on population size? Well the symmetry of
+the situation is such that population size also determines the
+mutational input of the population, canceling out the dependence of the
+probability of fixation on population size so that the flux of fixations
+is only dependent upon the rate of mutation. Truly incredible!</p>
+<p>Motoo Kimura, considered the founder of the Neutral Theory of Molecular
+Evolution, along with Tomoko Ohta put this theoretical prediction to the
+test by looking at rates of protein evolution over mammalian evolution.
+What they found was that rates of protein evolution per amino acid site
+per year were constant enough (<span class="math notranslate nohighlight">\(\approx 10^-9\)</span>) that indeed all
+substitutions might be neutral. There were many problems with their
+famous analysis, but perhaps the most glaring was that their unit of
+time- why should mutation rates be constant across mammalian lineages on
+a per year basis? The short answer is they shouldn’t- our derivation
+pertains to mutations per generation, thus we expect <em>a priori</em> that
+under the neutral model substitution rates should depend on generation
+times. Ohta did get back to this flaw later, but we unfortunately won’t
+have time to cover her further work (come take my advanced class if
+you’re interested).</p>
+<p>Once Kimura and Ohta published their result, numerous researchers were
+up in arms- of course there are differences in rates of evolution among
+genes or portions of the genome! They would expect them do to different
+levels of functional constraint. The notion of purifying selection was
+dear to the proponents of the classical school of genetic variation
+(e.g. Muller), so how does constraint fit in to the Kimura and Ohta
+model. Really it’s no problem for the neutral model. Imagine that some
+fraction of mutations <span class="math notranslate nohighlight">\(f_0\)</span> is purely neutral, and some other fraction
+<span class="math notranslate nohighlight">\(1-f_0\)</span> is strongly deleterious. If this is the case then that strongly
+deleterious fraction should never participate in molecular evolution and
+we have a quick fix to our model, namely</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \rho = \frac{1}{2N} \times 2Nuf_o = uf_o. \\
+\end{aligned}\end{split}\]</div>
+<p>Now
+different rates of evolution can be explained purely as a function of
+differing levels of constraint. More constraint leads to a lower
+fraction of purely neutral mutations (i.e. smaller <span class="math notranslate nohighlight">\(f_0\)</span>) and thus
+slower rates of evolution. Conversely loci which have little or no
+functional constraint should be expected to evolve more quickly.</p>
+<p>This simple fix is all well and good but do we really believe that
+mutations are either strongly deleterious or neutral as Muller might
+have? What about beneficial mutations? Shouldn’t we be including those
+in our model? Use your biological intuition here- what kinds of
+mutations should participate in molecular evolution and eventually lead
+to fixations between species? This is a central question to the study of
+evolutionary genetics…</p>
+<p>Ask yourself this- what should the probability of fixation of a
+beneficial or deleterious mutation be in relation to a neutral one?
+Without getting in to the mathematics lets gain a qualitative
+understanding of how rates of evolution change as a function of the
+kinds of mutations that enter populations. <a class="reference internal" href="#fixationrate"><span class="std std-numref">Fig. 8</span></a> shows the expected
+rates for these alternative models in comparison to the neutral rate.
+This intuition leads to simple tests of the neutral model based on rates
+of substitution- how would you go about asking if a gene was evolving
+under say positive selection?</p>
+<div class="figure align-default" id="fixationrate">
+<img alt="_images/fixationRate.png" src="_images/fixationRate.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text"><strong>Rates of substitution.</strong> Here we consider rates of substitution for
+three models, a beneficial alleles model (i.e. Positive Selection) in
+red, the neutral model in black, and a deleterious allele model (i.e.
+Purifying selection) in blue. Rates are shown as a function of
+population size, <span class="math notranslate nohighlight">\(N\)</span>, and are normalized by the mutation rate. The the
+Neutral rate is constant at 1.</span><a class="headerlink" href="#fixationrate" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="molecular-clocks">
+<h1>Molecular Clocks<a class="headerlink" href="#molecular-clocks" title="Permalink to this headline">¶</a></h1>
+<p>Most discussions of the rates of DNA evolution have been with respect to
+the molecular clock hypothesis which states that there is a positive
+linear relationship between time since two species diverged and amount
+of genetic divergence (e.g., DNA sequence difference) between those
+species - basically Kimura and Ohta’s observation. The fact that genes
+evolve at different rates indicate that there is not one molecular clock
+but probably many molecular clocks that “tick” at different rates, and
+in fact that those “ticks” might increase or decrease in rate over
+time.</p>
+<p>Lets say we could identify a reliable molecular clock (e.g., number of
+amino acid substitutions in the cytochrome C gene), we can in principle
+use this to date, or corroborate, evolutionary events of interest (e.g.,
+the divergence times for species that do not have good fossil data). For
+example: we know that there are <span class="math notranslate nohighlight">\(K_{xy}\)</span> substitutions between species
+<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> and we know that they diverged <span class="math notranslate nohighlight">\(T\)</span>years ago (from fossil
+data). Thus the rate of molecular evolution is <span class="math notranslate nohighlight">\(r = K{xy}/2T\)</span>. Now lets
+say we obtain the sequence of cytochrome C from 3 other species <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>
+and <span class="math notranslate nohighlight">\(c\)</span>. If we wanted to known their divergence times, we could assume
+that the molecular clock that we had calibrated using the the <span class="math notranslate nohighlight">\(x\)</span> to <span class="math notranslate nohighlight">\(y\)</span>
+comparison should apply and back calculate divergence times simple from
+levels of genetic divergence between our other species. In my humble
+opinion this approach has major short comings- what are they?</p>
+</div>
+<div class="section" id="polymorphism-and-divergence">
+<h1>Polymorphism and Divergence<a class="headerlink" href="#polymorphism-and-divergence" title="Permalink to this headline">¶</a></h1>
+<p>One of the nicest features of the neutral model is that it predicts a
+correlation in levels of polymorphism within populations and divergence
+between species. Briefly lets examine why this is so. We said already
+that the rate of substitution at neutral loci is purely dependent on the
+rate of mutation. That is <span class="math notranslate nohighlight">\(\rho=u\)</span>. Recall from our work on equilibrium
+expectations of heterozygosity that we came up with an expression for
+heterozygosity in neutral populations that depended on a joint parameter
+of population size and mutation rate, <span class="math notranslate nohighlight">\(4Nu\)</span>. If we call this joint
+parameter <span class="math notranslate nohighlight">\(\theta = 4Nu\)</span>, then we can rewrite our simple expression for
+equilibrium heterozygosity as</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \hat{H} = \frac{\theta}{\theta + 1}.
+\end{aligned}\]</div>
+<p>As levels of
+heterozygosity are going to depend on <span class="math notranslate nohighlight">\(\theta\)</span> alone its of great
+interest to try to estimate this parameter out of real data. Accordingly
+there are numerous ways to estimate <span class="math notranslate nohighlight">\(\theta\)</span>, including just doing what
+comes naturally and summing up the expected frequency of heterozygotes
+from allele frequencies in a population.</p>
+<p>Let’s step back quickly and look at what we have here. Rates of
+substitution will depend on <span class="math notranslate nohighlight">\(u\)</span> where as levels of heterozygosity will
+depend on both <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(N\)</span> through <span class="math notranslate nohighlight">\(\theta\)</span>, thus under neutrality we
+should have a simple correlation between levels at diversity at a locus
+and it’s rate of substitution. Again this could lead to tests of the
+neutral model of molecular evolution- can you figure out how that might
+work?</p>
+<p>Perhaps the simplest test of the neutral model which uses both
+polymorphism and divergence is the McDonald-Kreitman test (or MK test).
+The MK test compares the number of mutations which are polymorphic (i.e.
+segregating within a population) to the number of mutations which are
+fixed (i.e. contributing to divergence) between species at two loci, one
+that should be neutral and one that might be under selection (the
+classic example is synonymous sites versus non-synonymous sites). Call
+the number of polymorphisms at synonymous sites and non-synonymous sites
+<span class="math notranslate nohighlight">\(P_s\)</span> and <span class="math notranslate nohighlight">\(P_n\)</span> respectively. Similarly call the number of fixed
+differences <span class="math notranslate nohighlight">\(D_s\)</span> and <span class="math notranslate nohighlight">\(D_n\)</span>. Now lets imagine that each of our two sites
+had different rates of mutation, <span class="math notranslate nohighlight">\(u_s\)</span> and <span class="math notranslate nohighlight">\(u_n\)</span>. Under the neutral
+model <span class="math notranslate nohighlight">\(P_s\)</span> should be proportional to <span class="math notranslate nohighlight">\(4Nu_s\)</span> and and <span class="math notranslate nohighlight">\(D_s\)</span> should be
+equal to <span class="math notranslate nohighlight">\(u_s\)</span>. The same should be true for non-synonymous sites, that
+is <span class="math notranslate nohighlight">\(P_n \propto 4Nu_n\)</span> and <span class="math notranslate nohighlight">\(D_n = u_n\)</span>. Now consider the ratio of
+polymorphism to divergence at each of our loci. Under neutrality</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \frac{P_s}{D_s} &amp; = &amp;\frac{P_n}{D_n}\\
+    \frac{4Nu_s}{u_s} &amp; = &amp; \frac{4Nu_n}{u_n}
+\end{aligned}\end{split}\]</div>
+<p>Thus if
+these ratios are not equal the neutral model can be rejected. This is a
+powerful test of the neutral model and one that is very population in
+modern evolutionary genomics.</p>
+<p>Perhaps more than any other innovation in population genetics, this
+expected correlation between polymorphism and divergence has had great
+explanatory power in understanding patterns of genomic variation. For
+example- why do regions of low recombination show less variation than
+regions of normal recombination? This pattern, which has been observed
+in everything from corn and pine trees, to fruit flies and humans can
+only be understood in light of the mechanisms we have talked about.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="lecture4.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Genetic Drift</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Andrew Kern and Peter Ralph<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

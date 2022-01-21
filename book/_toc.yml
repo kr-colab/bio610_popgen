@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Introductory Material
+  chapters:
+  - file: lecture1
+  - file: lecture2
+  - file: lecture3
+  - file: lecture4
+  - file: lecture5

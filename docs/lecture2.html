@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natural Selection &#8212; Bio 610-- Intro to Population Genetics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mutation, Migration, with and without selection" href="lecture3.html" />
+    <link rel="prev" title="Introduction to Population Genetics" href="lecture1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tree.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Bio 610-- Intro to Population Genetics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to Population Genetics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introductory Material
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1.html">
+   Introduction to Population Genetics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Natural Selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3.html">
+   Mutation, Migration, with and without selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4.html">
+   Genetic Drift
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5.html">
+   Molecular Evolution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Natural Selection
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Natural Selection
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-basic-model-of-viability-selection">
+   The basic model of viability selection
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relative-fitness">
+   Relative Fitness
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flavors-of-selection">
+   Flavors of selection
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#directional-selection">
+     Directional selection
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#balancing-selection">
+     Balancing selection
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#disruptive-selection">
+     Disruptive selection
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="natural-selection">
+<h1>Natural Selection<a class="headerlink" href="#natural-selection" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="id1">
+<h1>Natural Selection<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Natural selection is arguably the single most important evolutionary
+force. The products of natural selection surround us- our biochemical
+sophistication, our finely tuned genetic systems, the incredible fit of
+organisms to their environments- however witnessing the change brought
+about by natural selection is nearly impossible in the human life time.
+Evolutionary change is simple too slow for the human observer. Thus we
+turn our attention to mathematical models of natural selection which
+when poked and prodded, will reveal much of the subtle nuance of
+evolution via natural selection.</p>
+</div>
+<div class="section" id="the-basic-model-of-viability-selection">
+<h1>The basic model of viability selection<a class="headerlink" href="#the-basic-model-of-viability-selection" title="Permalink to this headline">¶</a></h1>
+<p>We will again turn to our simplistic model of diploid, randomly mating
+hermaphrodites to study the fundementals of natural selection. Keep in
+mind that this model is for convenience, we can also study more
+realistic models (dioecious species, non-random mating, etc.), however
+our basic model has nearly all of the same features as more realistic
+models and is readily tackled mathematically.</p>
+<p>Our little hermaphrodites have a simple life cycle, randomly chosen
+gametes fuse to form zygotes, then these zygotes must survive to
+adulthood, adults must then be fertile to reproduce and produce
+offspring. You’ll notice that we’ve added two parts to our simple
+Hardy-Weinberg model, namely survivorship and fecundity. If the <span class="math notranslate nohighlight">\(A_iA_i\)</span>
+genotype has genotype-specific survivorship <span class="math notranslate nohighlight">\(l_{ii}\)</span> and fecundity
+<span class="math notranslate nohighlight">\(m_{ii}\)</span>, then the life cycle outlined above can be represented as
+Genotype <span class="math notranslate nohighlight">\(\rightarrow\)</span> zygote <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(l_{ii}\rightarrow\)</span> adult
+<span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(m_{ii} \rightarrow\)</span> offspring. We are now ready to
+understand how survivorship and fecundity differences between genotypes
+can lead to differences in genotype frequencies, outlined in Table 1.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Genotype <span class="math notranslate nohighlight">\(\rightarrow\)</span></p></th>
+<th class="head"><p>zygote <span class="math notranslate nohighlight">\(\rightarrow\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(l_{ii}\rightarrow\)</span></p></th>
+<th class="head"><p>adult <span class="math notranslate nohighlight">\(\rightarrow\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(m_{ii} \rightarrow\)</span></p></th>
+<th class="head"><p>offspring</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(A_1A_1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p^2\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(p^2l_{11}\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(p^2m_{11}l_{11}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(A_1A_2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2pq\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(2pql_{12}\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(2pqm_{12}l_{12}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(A_2A_2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(q^2\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(q^2l_{22}\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(q^2m_{22}l_{22}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>For the most part, we will consider the probability of representation to
+be the joint probability of surviving to adulthood and reproducing. This
+leads to our first formal definition of viability or absolute fitness.
+Let the viabilities of the <span class="math notranslate nohighlight">\(A_1A_1\)</span>, <span class="math notranslate nohighlight">\(A_1A_2\)</span>, and <span class="math notranslate nohighlight">\(A_2A_2\)</span> genotypes be
+<span class="math notranslate nohighlight">\(w_{11}\)</span>,<span class="math notranslate nohighlight">\(w_{12}\)</span>, and <span class="math notranslate nohighlight">\(w_{22}\)</span> respectively. Further let these
+viabilities be the joint probability of survival and reproduction such
+that <span class="math notranslate nohighlight">\(w_{ii} = l_{ii} \times m_{ii}\)</span>. Thus we can see that the frequency
+of a genotype after a round of selection (i.e. in the next generation
+after selection has occured) is proportional to the frequency of a
+genotype before selection times the viability of that genotype. For
+example, the frequency of the <span class="math notranslate nohighlight">\(A_1A_2\)</span> genotype after a round of
+selection is proportional <span class="math notranslate nohighlight">\(2pqw_{12}\)</span>.</p>
+<p>Next we are interested in figuring out the <em>relative</em> frequencies of
+genotypes after a round of selection. To do this we require some
+constant that will allow genotype frequencies after selection to sum to
+one. This is where the average fitness of a population comes in as we
+looked at in lecture.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Genotype:</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_1A_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_1A_2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_2A_2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Frequency before selection:</p></td>
+<td><p><span class="math notranslate nohighlight">\(p^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2pq\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(q^2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Viability:</p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{11}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{12}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{22}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Frequency after selection:</p></td>
+<td><p><span class="math notranslate nohighlight">\(p^2w_{11}/\bar{w}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2pqw_{12}/\bar{w}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(q^2w_{22}/\bar{w}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>The constant, <span class="math notranslate nohighlight">\(\bar{w}\)</span>, is equal to</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \bar{w} = p^2w_{11} + 2pqw_{12} + q^2w_{22}.
+\end{aligned}\]</div>
+<p>First notice that <span class="math notranslate nohighlight">\(\bar{w}\)</span> represents the frequency weighted average fitness
+of our population. Next also note that this didn’t pop out of thin air
+but is instead chosen such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \frac{p^2w_{11}}{\bar{w}} + \frac{2pqw_{12}}{\bar{w}} + \frac{q^2w_{22}}{\bar{w}} = 1
+\end{aligned}\]</div>
+<p>thus making sure that we can calculate relative frequencies of genotypes
+after selection. Examine this equation and the table closely- what
+you’ll notice is that what is important in determining the frequency of
+a genotype in the next generation is not it’s viability <em>per se</em>, but
+instead its viability <em>relative</em> to the average viability (fitness) of
+the population.</p>
+<p>Unlike under Hardy-Weinberg dynamics, natural selection can change
+allele frequencies. If we focus attention on the <span class="math notranslate nohighlight">\(A_1\)</span> allele we can
+write down its frequency after a round of selection <span class="math notranslate nohighlight">\(p'\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    p' = \frac{p^2w_{11} + pq{w_{12}}}{\bar{w}}.
+\end{aligned}\]</div>
+<p>Ask yourself this question: why is the second term in the numerator
+<span class="math notranslate nohighlight">\(pqw_{12}\)</span> and not <span class="math notranslate nohighlight">\(2pqw_{12}\)</span>? Got it? You guys are all gonna be great
+little population geneticists one day!</p>
+<p>The next order of business is to write down the change in allele
+frequency due to selection in a single generation. That is
+<span class="math notranslate nohighlight">\(\Delta_sp = p' - p\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    p' - p &amp; = &amp; \frac{p^2w_{11} + pq{w_{12}} - p\bar{w}}{\bar{w}} \\
+           &amp; =  &amp; \frac{p[pqw_{11} + q(1 - 2p)w_{12} - q^2w_{22}]}{\bar{w}},
+\end{aligned}\end{split}\]</div>
+<p>which after some algebraic fiddling yields</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \Delta_sp = \frac{pq[p(w_{11} - w_{12}) + q(w_{12} - w_{22})]}{\bar{w}}
+\end{aligned}\]</div>
+<p>We can now see how selection alone should change allele frequencies as a
+function of genotypic viability. This result is certainly one of the
+most important results in all of population genetics and evolution.</p>
+</div>
+<div class="section" id="relative-fitness">
+<h1>Relative Fitness<a class="headerlink" href="#relative-fitness" title="Permalink to this headline">¶</a></h1>
+<p>As we noticed earlier and made plain in equation 6, the change in allele
+frequency due to selection is dependent not just on the viability of a
+genotype alone, but instead on the viability of that genotype relative
+to the average viability of the population. This leads us to the
+distinction between absolute fitness and relative fitness. Absolute
+fitness can be understood as the probability of a genotype surviving to
+adulthood and then reproducing. That’s all well and good, but when we
+are interested in evolution the only thing that counts is how well that
+genotype performs in relation to others in its population. Thus we will
+define relative fitness to be the viability of a genotype standardized
+by the maximum genotypic viability. This won’t change any of the
+mechanics that we just derived, but instead will make them clearer to
+understand. Consider the following table</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Genotype:</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_1A_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_1A_2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_2A_2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Viability:</p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{11}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{12}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{22}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Relative viability:</p></td>
+<td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{12}/w_{11}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(w_{22}/w_{11}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>So far we’ve been calling the <span class="math notranslate nohighlight">\(w_{ij}\)</span>’s viabilities- in the business
+they are more commonly referred to as the absolute fitnesses of the
+individual genotypes. One we have normalized the <span class="math notranslate nohighlight">\(w_{ij}\)</span>’s by the most
+fit genotype in the population we end up with relative fitness values
+for each genotype. The common notation for relative fitness is</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Genotype:</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_1A_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_1A_2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A_2A_2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Relative Fitness:</p></td>
+<td><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 -hs\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 - s\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>where <span class="math notranslate nohighlight">\(1-hs = w_{12}/w_{11}\)</span> and <span class="math notranslate nohighlight">\(1-s = w_{22}/w_{11}\)</span>. The parameter
+<span class="math notranslate nohighlight">\(s\)</span> is called the selection coefficient. It is a measure of how fit the
+<span class="math notranslate nohighlight">\(A_2A_2\)</span> genotype is relative to the <span class="math notranslate nohighlight">\(A_1A_1\)</span> genotype. In this setting,
+if the selection coefficient is positive then the <span class="math notranslate nohighlight">\(A_2A_2\)</span> genotype is
+less fit than the <span class="math notranslate nohighlight">\(A_1A_1\)</span> genotype. Conversely if the selection
+coefficient is negative, then the <span class="math notranslate nohighlight">\(A_2A_2\)</span> genotype is more fit. We’ll
+always assume that <span class="math notranslate nohighlight">\(0\leq s \leq1\)</span> in this class, but notice that all of
+this notation is really just arbitrary. We’re simply assuming that the
+<span class="math notranslate nohighlight">\(A_1\)</span> allele is generally the confers some fitness benefit to the
+genotype.</p>
+<p>What about the <span class="math notranslate nohighlight">\(h\)</span> parameter? This parameter is sometimes called the
+heterozygous effect, as it measures the difference in fitness between
+the heterozygotes and the two homozygote genotypes. In essence though,
+<span class="math notranslate nohighlight">\(h\)</span> really defines the dominance relations between the 2 alleles at our
+locus. This is shown in the following table</p>
+<table class="colwidths-auto table" id="id2">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Table showing dominance relationships among alleles specified by <span class="math notranslate nohighlight">\(h\)</span></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(h\)</span></p></th>
+<th class="head"><p>dominance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(h = 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(A_1\)</span> dominant, <span class="math notranslate nohighlight">\(A_2\)</span> recessive</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(h = 1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(A_2\)</span> dominant, <span class="math notranslate nohighlight">\(A_1\)</span> recessive</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(0 &lt; h &lt; 1\)</span></p></td>
+<td><p>co-dominance</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(h &lt; 0\)</span></p></td>
+<td><p>overdominance</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(h &gt; 1\)</span></p></td>
+<td><p>underdominance</p></td>
+</tr>
+</tbody>
+</table>
+<p>Generally in genetics we are interested in the cases of co-dominance,
+overdominance, and underdominance. The complete dominance setting,
+although seen in morphological traits often, is generally unrealistic
+for most genetic situations. Why would this be?</p>
+<p>We are now fully armed to rewrite equation 6 in terms of relative
+fitness. This will lead to a much more provocative construction of this
+same equation. So the change in frequency of the <span class="math notranslate nohighlight">\(A_1\)</span> allele due to
+selection is then</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \Delta_sp = \frac{pqs[ph + q(1-h)]}{\bar{w}}
+\end{aligned}\]</div>
+<p>and we can write down the population mean fitness as</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \bar{w} = 1 - 2pqhs - q^2s.
+\end{aligned}\]</div>
+<p>The only thing I’ve done
+to get these formulations is replace <span class="math notranslate nohighlight">\(w_{11}, w_{12}\)</span> and <span class="math notranslate nohighlight">\(w_{22}\)</span> with
+<span class="math notranslate nohighlight">\(1,1-hs\)</span>, and <span class="math notranslate nohighlight">\(1-s\)</span> respectively.</p>
+</div>
+<div class="section" id="flavors-of-selection">
+<h1>Flavors of selection<a class="headerlink" href="#flavors-of-selection" title="Permalink to this headline">¶</a></h1>
+<p>We talk generally about 3 kinds of selection: directional selection (as
+occurs with co-dominance), balancing selection (overdominance), and
+disruptive selection (underdominance). We have already looked at what
+these types of selection do at the phenotypic level during lecture. What
+are the effects of these distinct flavors of selection on allele
+frequencies? To examine this we will examine the fate of the <span class="math notranslate nohighlight">\(A_1\)</span>
+allele in a population, given values for the parameters <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(s\)</span> and
+assuming some initial frequency of the <span class="math notranslate nohighlight">\(A_1\)</span> allele.</p>
+<div class="section" id="directional-selection">
+<h2>Directional selection<a class="headerlink" href="#directional-selection" title="Permalink to this headline">¶</a></h2>
+<p>Directional selection is perhaps the most familiar form of selection.
+This is the kind of selection that Charles Darwin had in mind when he
+wrote about evolution by natural selection. Directional selection occurs
+in the case of incomplete dominance (<span class="math notranslate nohighlight">\(0 \leq h \leq 1\)</span>). In this case
+the frequency of the <span class="math notranslate nohighlight">\(A_1\)</span> allele, <span class="math notranslate nohighlight">\(p\)</span>, should always increase, or seen
+another way <span class="math notranslate nohighlight">\(\Delta_sp &gt; 0\)</span>. <a class="reference internal" href="#dir-seln"><span class="std std-numref">Fig. 2</span></a> plots <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of
+<span class="math notranslate nohighlight">\(p\)</span>. As an exercise, plot how <span class="math notranslate nohighlight">\(p\)</span> changes from generation to generation.
+Does the <span class="math notranslate nohighlight">\(A_1\)</span> allele always fix (i.e. <span class="math notranslate nohighlight">\(\rightarrow 1\)</span>) in the
+population?</p>
+<div class="figure align-default" id="dir-seln">
+<img alt="_images/dir_seln_delta.png" src="_images/dir_seln_delta.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Directional selection. Shown is the change in allele frequency
+<span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of allele frequency <span class="math notranslate nohighlight">\(p\)</span>. In this case <span class="math notranslate nohighlight">\(h=0.5\)</span>
+and <span class="math notranslate nohighlight">\(s=0.1\)</span></span><a class="headerlink" href="#dir-seln" title="Permalink to this image">¶</a></p>
+</div>
+<p>One thing to notice- the change in allele frequency is slowest when
+there is little genetic variation in the population (i.e. when <span class="math notranslate nohighlight">\(p\)</span> is
+close to zero or one). Be sure that you can explain to yourself why this
+is.</p>
+</div>
+<div class="section" id="balancing-selection">
+<h2>Balancing selection<a class="headerlink" href="#balancing-selection" title="Permalink to this headline">¶</a></h2>
+<p>The second kind of selection occurs when there is overdominance (i.e.
+<span class="math notranslate nohighlight">\(h &lt; 0\)</span>). Unlike directional selection, balancing selection leads to the
+maintenance of variation within a population. That is to say the the
+allele frequency of the <span class="math notranslate nohighlight">\(A_1\)</span> allele will approach some equilibrium
+value <span class="math notranslate nohighlight">\(\hat{p}\)</span> independent of initial frequency. We will plot this
+again graphically by looking at the change in allele frequency as a
+function of allele frequency.</p>
+<div class="figure align-default" id="bal-seln">
+<img alt="_images/bal_seln_delta.png" src="_images/bal_seln_delta.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Balancing selection. Shown is the change in allele frequency
+<span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of allele frequency <span class="math notranslate nohighlight">\(p\)</span>. In this case <span class="math notranslate nohighlight">\(h=-0.5\)</span>
+and <span class="math notranslate nohighlight">\(s=0.1\)</span></span><a class="headerlink" href="#bal-seln" title="Permalink to this image">¶</a></p>
+</div>
+<p>.</p>
+<p>Let’s look closely at <a class="reference internal" href="#bal-seln"><span class="std std-numref">Fig. 3</span></a>. Notice that when <span class="math notranslate nohighlight">\(p\)</span> is close to zero
+<span class="math notranslate nohighlight">\(\Delta_sp &gt; 0\)</span> and thus allele frequency will increase when rare.
+Conversely when <span class="math notranslate nohighlight">\(p\)</span> is close to one <span class="math notranslate nohighlight">\(\Delta_sp &lt; 0\)</span> and allele frequency
+will decrease. Where is the stable equilibrium in this figure? It is
+left to the reader to find this equilibrium point. You can do so by
+setting <span class="math notranslate nohighlight">\(\Delta_sp = 0\)</span> and solving for <span class="math notranslate nohighlight">\(\hat{p}\)</span>.</p>
+</div>
+<div class="section" id="disruptive-selection">
+<h2>Disruptive selection<a class="headerlink" href="#disruptive-selection" title="Permalink to this headline">¶</a></h2>
+<p>The last kind of selection we will look at is disruptive selection. This
+occurs with overdominance, <span class="math notranslate nohighlight">\(h &gt; 1\)</span>. <a class="reference internal" href="#disrup-seln"><span class="std std-numref">Fig. 4</span></a> again graphs <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as
+a function of <span class="math notranslate nohighlight">\(p\)</span>. What’s curious in this case is that <span class="math notranslate nohighlight">\(p\)</span> will decrease
+when rare and increase when common in the population. This means that if
+<span class="math notranslate nohighlight">\(p\)</span> is less than <span class="math notranslate nohighlight">\(\hat{p}\)</span> the allele will be lost, and if <span class="math notranslate nohighlight">\(p&gt;\hat{p}\)</span>
+it will fix. Thus <span class="math notranslate nohighlight">\(\hat{p}\)</span> is an unstable equilibrium. If by some
+strange circumstance <span class="math notranslate nohighlight">\(p = \hat{p}\)</span> allele frequencies won’t change at
+all! Needless to say underdominance is rare in nature…</p>
+<div class="figure align-default" id="disrup-seln">
+<img alt="_images/disrup_seln_delta.png" src="_images/disrup_seln_delta.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><strong>Disruptive selection.</strong> Shown is the change in allele frequency
+<span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of allele frequency <span class="math notranslate nohighlight">\(p\)</span>. In this case <span class="math notranslate nohighlight">\(h=2\)</span>
+and <span class="math notranslate nohighlight">\(s=0.1\)</span></span><a class="headerlink" href="#disrup-seln" title="Permalink to this image">¶</a></p>
+</div>
+<p>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="lecture1.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Introduction to Population Genetics</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="lecture3.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Mutation, Migration, with and without selection</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Andrew Kern and Peter Ralph<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
