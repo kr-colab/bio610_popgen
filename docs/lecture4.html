@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Genetic Drift &#8212; Bio 610-- Intro to Population Genetics</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -56,7 +56,10 @@
     <link rel="next" title="Molecular Evolution" href="lecture5.html" />
     <link rel="prev" title="Mutation, Migration, with and without selection" href="lecture3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -95,7 +98,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introductory Material
  </span>
@@ -124,6 +127,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lecture5.html">
    Molecular Evolution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="test.html">
+   hello
   </a>
  </li>
 </ul>
@@ -172,7 +180,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -183,11 +191,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/kr-colab/bio610_popgen"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture4.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/kr-colab/bio610_popgen/issues/new?title=Issue%20on%20page%20%2Flecture4.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -206,7 +214,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -256,10 +264,63 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Genetic Drift</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Genetic Drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genetic-drift-the-algorithm">
+   Genetic drift: the algorithm
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genetic-drift-as-a-dispersive-force">
+   Genetic drift as a dispersive force
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decay-in-heterozygosity-due-to-drift">
+   Decay in heterozygosity due to drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixation-probability-of-a-neutral-mutation">
+   Fixation Probability of a neutral mutation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutation-and-drift">
+   Mutation and Drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effective-population-size">
+   Effective population size
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="genetic-drift">
+  <div class="tex2jax_ignore mathjax_ignore section" id="genetic-drift">
 <h1>Genetic Drift<a class="headerlink" href="#genetic-drift" title="Permalink to this headline">¶</a></h1>
 <p>Genetic drift refers to random fluctuations in allele frequencies due to
 random sampling of alleles in finite populations. The previous lectures
@@ -292,7 +353,7 @@ generation. Notice how random sampling after 10 generations has
 substantially changed the frequency of the red marble.</span><a class="headerlink" href="#urn" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<div class="section" id="genetic-drift-the-algorithm">
+<div class="tex2jax_ignore mathjax_ignore section" id="genetic-drift-the-algorithm">
 <h1>Genetic drift: the algorithm<a class="headerlink" href="#genetic-drift-the-algorithm" title="Permalink to this headline">¶</a></h1>
 <p>Here’s a very simple algorithm that describes all of the essentials of
 genetic drift. If you already know how to program a computer, a very
@@ -311,7 +372,7 @@ generation</p></li>
 <p>This is exactly the algorithm I used to generate <a class="reference internal" href="#urn"><span class="std std-numref">Fig. 5</span></a>. Can you
 replicate this figure?</p>
 </div>
-<div class="section" id="genetic-drift-as-a-dispersive-force">
+<div class="tex2jax_ignore mathjax_ignore section" id="genetic-drift-as-a-dispersive-force">
 <h1>Genetic drift as a dispersive force<a class="headerlink" href="#genetic-drift-as-a-dispersive-force" title="Permalink to this headline">¶</a></h1>
 <p>One of the main ways that genetic drift acts is as a dispersive force on
 allele frequencies (i.e. it moves allele frequencies about randomly). A
@@ -341,7 +402,7 @@ by chance! No directionality! This implies that evolution cannot be
 repeated. These are the main ways in which genetic drift can be an
 important force in evolution of populations with small population size.</p>
 </div>
-<div class="section" id="decay-in-heterozygosity-due-to-drift">
+<div class="tex2jax_ignore mathjax_ignore section" id="decay-in-heterozygosity-due-to-drift">
 <h1>Decay in heterozygosity due to drift<a class="headerlink" href="#decay-in-heterozygosity-due-to-drift" title="Permalink to this headline">¶</a></h1>
 <p>While studying the full dynamics of genetic drift is difficult
 mathematically it is simple enough to follow one of the main features of
@@ -420,7 +481,7 @@ it never reaches exactly zero. As an exercise write down the half-life
 of heterozygosity using this difference equation, that is solve for the
 time until <span class="math notranslate nohighlight">\(H\)</span> decreases to half it’s original value <span class="math notranslate nohighlight">\(H_0/2\)</span>.</p>
 </div>
-<div class="section" id="fixation-probability-of-a-neutral-mutation">
+<div class="tex2jax_ignore mathjax_ignore section" id="fixation-probability-of-a-neutral-mutation">
 <h1>Fixation Probability of a neutral mutation<a class="headerlink" href="#fixation-probability-of-a-neutral-mutation" title="Permalink to this headline">¶</a></h1>
 <p>Quick detour to the world of molecular evolution. If drift means that
 ultimately alleles are fixed or lost from populations, which allele
@@ -446,7 +507,7 @@ neutral allele at frequency <span class="math notranslate nohighlight">\(p\)</sp
 <p>This probability will play an important role in our study of molecular
 evolution, but for now just marvel at the symmetry of neutral evolution.</p>
 </div>
-<div class="section" id="mutation-and-drift">
+<div class="tex2jax_ignore mathjax_ignore section" id="mutation-and-drift">
 <h1>Mutation and Drift<a class="headerlink" href="#mutation-and-drift" title="Permalink to this headline">¶</a></h1>
 <p>Ultimately genetic drift is a force acting to remove variation from
 populations, so why does genetic variation persist in populations? The
@@ -515,7 +576,7 @@ drift and mutation is shown as a function of <span class="math notranslate nohig
 constant.</span><a class="headerlink" href="#hequil" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<div class="section" id="effective-population-size">
+<div class="tex2jax_ignore mathjax_ignore section" id="effective-population-size">
 <h1>Effective population size<a class="headerlink" href="#effective-population-size" title="Permalink to this headline">¶</a></h1>
 <p>In neutral populations, we can describe the rate at which the
 populations drifts by its size. Our population however is an idealized
@@ -575,54 +636,42 @@ important over evolutionary time?</p>
 
               </div>
               
-        
             
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="lecture3.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Mutation, Migration, with and without selection</p>
-            </div>
-        </a>
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="lecture3.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Mutation, Migration, with and without selection</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lecture5.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Molecular Evolution</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="lecture5.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Molecular Evolution</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Andrew Kern and Peter Ralph<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Andrew Kern and Peter Ralph<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
