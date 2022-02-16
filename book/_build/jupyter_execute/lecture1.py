@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# 
 # # Introduction to Population Genetics
 # 
 # 
@@ -90,7 +91,8 @@
 # $$\begin{aligned}
 #     p = x_{11} + \frac{1}{2}x_{12},
 # \end{aligned}$$
-
+# 
+# +++
 # and the frequency of
 # the $A_2$ allele is 
 # 
@@ -162,6 +164,8 @@
 # First double check that I have gotten relative genotypic frequencies
 # correct. Next calculate the allele frequencies. I get $p = 0.556$, what
 # do you get?
+# 
+
 # 
 # # The Hardy-Weinberg Law
 # 
@@ -262,6 +266,60 @@
 # allele frequencies it only takes two rounds of random mating to get back
 # our H-W expected genotype frequencies.
 # 
+# 
+
+# 
+
+# In[1]:
+
+
+get_ipython().run_line_magic('load_ext', 'slim_magic')
+
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+from IPython.display import display, SVG
+
+
+# In[2]:
+
+
+get_ipython().run_cell_magic('slim_stats_reps_rstack', '10 --out df', '// set up a single locus simulation of drift\ninitialize()\n{\n    // set the overall mutation rate\n    initializeMutationRate(0);\n    // m1 mutation type: neutral\n    initializeMutationType("m1", 0.5, "f", 0.0);\n    // g1 genomic element type: uses m1 probability 1\n    initializeGenomicElementType("g1", c(m1), c(1.0));\n    // uniform chromosome of length 1 site\n    initializeGenomicElement(g1, 0, 0);\n    // uniform recombination along the chromosome\n    initializeRecombinationRate(1e-8);\n    suppressWarnings(T);\n}\n\n// create a population of 100 individuals\n1 {\n    sim.addSubpop("p1", 100);\n    // sample 100 haploid genomes \n    target = sample(p1.genomes, 100);\n    // add a mutation to those genomes\n    // H_0 = 0.5 here\n    target.addNewMutation(m1,0, 0);\n    cat("generation,p,x11,x12,x22\\\\n");\n}\n1:300 late(){\n    inds = p1.sampleIndividuals(100);\n    ind_count = inds.countOfMutationsOfType(m1);\n    counts = c(0, 0, 0);\n    for (x in ind_count)\n        counts[x] = counts[x] + 1;\n    counts = counts / 100;\n    freqs = sim.mutationFrequencies(p1);\n    if (length(freqs) > 0.0)\n        catn(sim.generation + "," + freqs + "," + paste(counts, sep=","));\n    }\n// run to generation 0\n300 late() {\n    sim.simulationFinished();\n    }')
+
+
+# ## HWE Expectations
+# let's write a function to compute the HW expected genotype frequencies from the allele frequency, $p$
+
+# In[3]:
+
+
+def hwe(p):
+    return np.array([p**2, 2 * p * (1 - p), (1 - p)**2])
+
+#run that function for 100 pts between (0,1)
+expected = hwe(np.linspace(0,1,100))
+
+
+# In[4]:
+
+
+#plot simulated
+plt.scatter(df.p, df.x11, label="A_11 frequency")
+plt.scatter(df.p, df.x12, label="A_12 frequency")
+plt.scatter(df.p, df.x22, label="A_22 frequency")
+
+
+#plot expected
+plt.plot(np.linspace(0,1,100),expected[0,:], c="red", linestyle="dotted", label="HWE expected")
+plt.plot(np.linspace(0,1,100),expected[1,:], c="red", linestyle="dotted")
+plt.plot(np.linspace(0,1,100),expected[2,:], c="red", linestyle="dotted")
+
+plt.legend()
+plt.xlabel("allele frequency")
+plt.ylabel("genotype frequency")
+
+
+# 
 # # Heterozygosity 
 # 
 # As we talked about in the last lecture, getting a handle on the amounts
@@ -319,3 +377,10 @@
 # is often used to describe populations that don't conform to H-W
 # assumptions. In many ways it's just a convenient measure- like
 # temperature.
+# 
+
+# In[ ]:
+
+
+
+

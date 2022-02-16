@@ -37,9 +37,12 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -173,14 +176,11 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="_sources/lecture1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/lecture1.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/lecture1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -219,7 +219,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kr-colab/bio610_popgen/main?urlpath=lab/tree/book/lecture1.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kr-colab/bio610_popgen/main?urlpath=lab/tree/book/lecture1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -260,6 +260,13 @@
   <a class="reference internal nav-link" href="#the-hardy-weinberg-law">
    The Hardy-Weinberg Law
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hwe-expectations">
+     HWE Expectations
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#heterozygosity">
@@ -305,6 +312,13 @@
   <a class="reference internal nav-link" href="#the-hardy-weinberg-law">
    The Hardy-Weinberg Law
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hwe-expectations">
+     HWE Expectations
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#heterozygosity">
@@ -622,6 +636,107 @@ returned to their Hardy-Weinberg values of <span class="math notranslate nohighl
 and <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span>. So even for dioecious species with very different
 allele frequencies it only takes two rounds of random mating to get back
 our H-W expected genotype frequencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> slim_magic
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">slim_stats_reps_rstack</span> 10 --out df
+// set up a single locus simulation of drift
+initialize()
+{
+    // set the overall mutation rate
+    initializeMutationRate(0);
+    // m1 mutation type: neutral
+    initializeMutationType(&quot;m1&quot;, 0.5, &quot;f&quot;, 0.0);
+    // g1 genomic element type: uses m1 probability 1
+    initializeGenomicElementType(&quot;g1&quot;, c(m1), c(1.0));
+    // uniform chromosome of length 1 site
+    initializeGenomicElement(g1, 0, 0);
+    // uniform recombination along the chromosome
+    initializeRecombinationRate(1e-8);
+    suppressWarnings(T);
+}
+
+// create a population of 100 individuals
+1 {
+    sim.addSubpop(&quot;p1&quot;, 100);
+    // sample 100 haploid genomes 
+    target = sample(p1.genomes, 100);
+    // add a mutation to those genomes
+    // H_0 = 0.5 here
+    target.addNewMutation(m1,0, 0);
+    cat(&quot;generation,p,x11,x12,x22\\n&quot;);
+}
+1:300 late(){
+    inds = p1.sampleIndividuals(100);
+    ind_count = inds.countOfMutationsOfType(m1);
+    counts = c(0, 0, 0);
+    for (x in ind_count)
+        counts[x] = counts[x] + 1;
+    counts = counts / 100;
+    freqs = sim.mutationFrequencies(p1);
+    if (length(freqs) &gt; 0.0)
+        catn(sim.generation + &quot;,&quot; + freqs + &quot;,&quot; + paste(counts, sep=&quot;,&quot;));
+    }
+// run to generation 0
+300 late() {
+    sim.simulationFinished();
+    }
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hwe-expectations">
+<h2>HWE Expectations<a class="headerlink" href="#hwe-expectations" title="Permalink to this headline">¶</a></h2>
+<p>let’s write a function to compute the HW expected genotype frequencies from the allele frequency, <span class="math notranslate nohighlight">\(p\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hwe</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1">#run that function for 100 pts between (0,1)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="n">hwe</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot simulated</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x11</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_11 frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_12 frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x22</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_22 frequency&quot;</span><span class="p">)</span>
+
+
+<span class="c1">#plot expected</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HWE expected&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">2</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;allele frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;genotype frequency&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;genotype frequency&#39;)
+</pre></div>
+</div>
+<img alt="_images/lecture1_7_1.png" src="_images/lecture1_7_1.png" />
+</div>
+</div>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="heterozygosity">
 <h1>Heterozygosity<a class="headerlink" href="#heterozygosity" title="Permalink to this headline">¶</a></h1>

@@ -1,0 +1,16 @@
+name: pg_book
+channels:
+  - conda-forge
+dependencies:
+  - python==3.8
+  - pip
+  - slim==3.7.1
+  - pip:
+    - pandas
+    - numpy
+    - matplotlib
+    - msprime
+    - tskit
+    - jupyter
+    - jupyter-book
+    - git+http://github.com/andrewkern/slim_magic.git
