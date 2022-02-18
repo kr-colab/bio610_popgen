@@ -4,10 +4,13 @@
 format: jb-book
 root: intro
 parts:
-- caption: Introductory Material
+- caption: Population Genetics Concepts
   chapters:
   - file: lecture1
   - file: lecture2
   - file: lecture3
   - file: lecture4
   - file: lecture5
+- caption: Exercises
+  chapters:
+  - file: exercise1

@@ -103,7 +103,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Introductory Material
+  Population Genetics Concepts
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -130,6 +130,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lecture5.html">
    Molecular Evolution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise1.html">
+   Exercise 1
   </a>
  </li>
 </ul>
@@ -623,13 +635,13 @@ This is the kind of selection that Charles Darwin had in mind when he
 wrote about evolution by natural selection. Directional selection occurs
 in the case of incomplete dominance (<span class="math notranslate nohighlight">\(0 \leq h \leq 1\)</span>). In this case
 the frequency of the <span class="math notranslate nohighlight">\(A_1\)</span> allele, <span class="math notranslate nohighlight">\(p\)</span>, should always increase, or seen
-another way <span class="math notranslate nohighlight">\(\Delta_sp &gt; 0\)</span>. <a class="reference internal" href="#dir-seln"><span class="std std-numref">Fig. 2</span></a> plots <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of
+another way <span class="math notranslate nohighlight">\(\Delta_sp &gt; 0\)</span>. <a class="reference internal" href="#dir-seln"><span class="std std-numref">Fig. 1</span></a> plots <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of
 <span class="math notranslate nohighlight">\(p\)</span>. As an exercise, plot how <span class="math notranslate nohighlight">\(p\)</span> changes from generation to generation.
 Does the <span class="math notranslate nohighlight">\(A_1\)</span> allele always fix (i.e. <span class="math notranslate nohighlight">\(\rightarrow 1\)</span>) in the
 population?</p>
 <div class="figure align-default" id="dir-seln">
 <img alt="_images/dir_seln_delta.png" src="_images/dir_seln_delta.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Directional selection. Shown is the change in allele frequency
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Directional selection. Shown is the change in allele frequency
 <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of allele frequency <span class="math notranslate nohighlight">\(p\)</span>. In this case <span class="math notranslate nohighlight">\(h=0.5\)</span>
 and <span class="math notranslate nohighlight">\(s=0.1\)</span></span><a class="headerlink" href="#dir-seln" title="Permalink to this image">¶</a></p>
 </div>
@@ -649,12 +661,12 @@ again graphically by looking at the change in allele frequency as a
 function of allele frequency.</p>
 <div class="figure align-default" id="bal-seln">
 <img alt="_images/bal_seln_delta.png" src="_images/bal_seln_delta.png" />
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Balancing selection. Shown is the change in allele frequency
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Balancing selection. Shown is the change in allele frequency
 <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of allele frequency <span class="math notranslate nohighlight">\(p\)</span>. In this case <span class="math notranslate nohighlight">\(h=-0.5\)</span>
 and <span class="math notranslate nohighlight">\(s=0.1\)</span></span><a class="headerlink" href="#bal-seln" title="Permalink to this image">¶</a></p>
 </div>
 <p>.</p>
-<p>Let’s look closely at <a class="reference internal" href="#bal-seln"><span class="std std-numref">Fig. 3</span></a>. Notice that when <span class="math notranslate nohighlight">\(p\)</span> is close to zero
+<p>Let’s look closely at <a class="reference internal" href="#bal-seln"><span class="std std-numref">Fig. 2</span></a>. Notice that when <span class="math notranslate nohighlight">\(p\)</span> is close to zero
 <span class="math notranslate nohighlight">\(\Delta_sp &gt; 0\)</span> and thus allele frequency will increase when rare.
 Conversely when <span class="math notranslate nohighlight">\(p\)</span> is close to one <span class="math notranslate nohighlight">\(\Delta_sp &lt; 0\)</span> and allele frequency
 will decrease. Where is the stable equilibrium in this figure? It is
@@ -664,7 +676,7 @@ setting <span class="math notranslate nohighlight">\(\Delta_sp = 0\)</span> and 
 <div class="section" id="disruptive-selection">
 <h2>Disruptive selection<a class="headerlink" href="#disruptive-selection" title="Permalink to this headline">¶</a></h2>
 <p>The last kind of selection we will look at is disruptive selection. This
-occurs with overdominance, <span class="math notranslate nohighlight">\(h &gt; 1\)</span>. <a class="reference internal" href="#disrup-seln"><span class="std std-numref">Fig. 4</span></a> again graphs <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as
+occurs with overdominance, <span class="math notranslate nohighlight">\(h &gt; 1\)</span>. <a class="reference internal" href="#disrup-seln"><span class="std std-numref">Fig. 3</span></a> again graphs <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as
 a function of <span class="math notranslate nohighlight">\(p\)</span>. What’s curious in this case is that <span class="math notranslate nohighlight">\(p\)</span> will decrease
 when rare and increase when common in the population. This means that if
 <span class="math notranslate nohighlight">\(p\)</span> is less than <span class="math notranslate nohighlight">\(\hat{p}\)</span> the allele will be lost, and if <span class="math notranslate nohighlight">\(p&gt;\hat{p}\)</span>
@@ -673,7 +685,7 @@ strange circumstance <span class="math notranslate nohighlight">\(p = \hat{p}\)<
 all! Needless to say underdominance is rare in nature…</p>
 <div class="figure align-default" id="disrup-seln">
 <img alt="_images/disrup_seln_delta.png" src="_images/disrup_seln_delta.png" />
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><strong>Disruptive selection.</strong> Shown is the change in allele frequency
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text"><strong>Disruptive selection.</strong> Shown is the change in allele frequency
 <span class="math notranslate nohighlight">\(\Delta_sp\)</span> as a function of allele frequency <span class="math notranslate nohighlight">\(p\)</span>. In this case <span class="math notranslate nohighlight">\(h=2\)</span>
 and <span class="math notranslate nohighlight">\(s=0.1\)</span></span><a class="headerlink" href="#disrup-seln" title="Permalink to this image">¶</a></p>
 </div>

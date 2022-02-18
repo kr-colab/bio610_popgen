@@ -103,7 +103,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Introductory Material
+  Population Genetics Concepts
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -130,6 +130,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lecture5.html">
    Molecular Evolution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise1.html">
+   Exercise 1
   </a>
  </li>
 </ul>
@@ -275,18 +287,18 @@
   <a class="reference internal nav-link" href="#the-hardy-weinberg-law">
    The Hardy-Weinberg Law
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hwe-expectations">
-     HWE Expectations
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#heterozygosity">
    Heterozygosity
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-hardy-weinberg-expectations">
+     Simulating Hardy-Weinberg Expectations
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -347,18 +359,18 @@
   <a class="reference internal nav-link" href="#the-hardy-weinberg-law">
    The Hardy-Weinberg Law
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hwe-expectations">
-     HWE Expectations
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#heterozygosity">
    Heterozygosity
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-hardy-weinberg-expectations">
+     Simulating Hardy-Weinberg Expectations
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -533,8 +545,7 @@ population is simply</p>
 \[\begin{aligned}
     p = x_{11} + \frac{1}{2}x_{12},
 \end{aligned}\]</div>
-<p>and the frequency of
-the <span class="math notranslate nohighlight">\(A_2\)</span> allele is</p>
+<p>and the frequency of the <span class="math notranslate nohighlight">\(A_2\)</span> allele is</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
     q = 1 - p =  x_{22} + \frac{1}{2}x_{12}.\end{aligned}\]</div>
@@ -743,107 +754,6 @@ returned to their Hardy-Weinberg values of <span class="math notranslate nohighl
 and <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span>. So even for dioecious species with very different
 allele frequencies it only takes two rounds of random mating to get back
 our H-W expected genotype frequencies.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> slim_magic
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">slim_stats_reps_rstack</span> 10 --out df
-// set up a single locus simulation of drift
-initialize()
-{
-    // set the overall mutation rate
-    initializeMutationRate(0);
-    // m1 mutation type: neutral
-    initializeMutationType(&quot;m1&quot;, 0.5, &quot;f&quot;, 0.0);
-    // g1 genomic element type: uses m1 probability 1
-    initializeGenomicElementType(&quot;g1&quot;, c(m1), c(1.0));
-    // uniform chromosome of length 1 site
-    initializeGenomicElement(g1, 0, 0);
-    // uniform recombination along the chromosome
-    initializeRecombinationRate(1e-8);
-    suppressWarnings(T);
-}
-
-// create a population of 100 individuals
-1 {
-    sim.addSubpop(&quot;p1&quot;, 100);
-    // sample 100 haploid genomes 
-    target = sample(p1.genomes, 100);
-    // add a mutation to those genomes
-    // H_0 = 0.5 here
-    target.addNewMutation(m1,0, 0);
-    cat(&quot;generation,p,x11,x12,x22\\n&quot;);
-}
-1:300 late(){
-    inds = p1.sampleIndividuals(100);
-    ind_count = inds.countOfMutationsOfType(m1);
-    counts = c(0, 0, 0);
-    for (x in ind_count)
-        counts[x] = counts[x] + 1;
-    counts = counts / 100;
-    freqs = sim.mutationFrequencies(p1);
-    if (length(freqs) &gt; 0.0)
-        catn(sim.generation + &quot;,&quot; + freqs + &quot;,&quot; + paste(counts, sep=&quot;,&quot;));
-    }
-// run to generation 0
-300 late() {
-    sim.simulationFinished();
-    }
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="hwe-expectations">
-<h2>HWE Expectations<a class="headerlink" href="#hwe-expectations" title="Permalink to this headline">¶</a></h2>
-<p>let’s write a function to compute the HW expected genotype frequencies from the allele frequency, <span class="math notranslate nohighlight">\(p\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hwe</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="c1">#run that function for 100 pts between (0,1)</span>
-<span class="n">expected</span> <span class="o">=</span> <span class="n">hwe</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot simulated</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x11</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_11 frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_12 frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x22</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_22 frequency&quot;</span><span class="p">)</span>
-
-
-<span class="c1">#plot expected</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HWE expected&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">2</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;allele frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;genotype frequency&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;genotype frequency&#39;)
-</pre></div>
-</div>
-<img alt="_images/lecture1_11_1.png" src="_images/lecture1_11_1.png" />
-</div>
-</div>
-</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="heterozygosity">
 <h1>Heterozygosity<a class="headerlink" href="#heterozygosity" title="Permalink to this headline">¶</a></h1>
@@ -860,10 +770,33 @@ frequency of heterozygotes as a function of the <span class="math notranslate no
 under Hardy-Weinberg conditions. Ask yourself this simple question- at
 what allele frequency is the probability of sampling a heterozygote from
 a population maximized? Does this make intuitive sense to you?</p>
-<div class="figure align-default" id="id1">
-<img alt="_images/hetGraph.png" src="_images/hetGraph.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">The frequency of heterozygotes as a function of allele frequency in
-H-W equilibrium populations</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">het</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the expected heterozygosity of a population</span>
+<span class="sd">    from the allele frequency, p</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
+
+<span class="n">allele_freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">expected_het</span> <span class="o">=</span> <span class="n">het</span><span class="p">(</span><span class="n">allele_freqs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">allele_freqs</span><span class="p">,</span> <span class="n">expected_het</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;expected heterozygosity&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;allele frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;expected heterozygosity&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;expected heterozygosity&#39;)
+</pre></div>
+</div>
+<img alt="_images/lecture1_7_1.png" src="_images/lecture1_7_1.png" />
+</div>
 </div>
 <p>Before moving on to a formal treatment of heterozygosity, let’s first
 generalize the Hardy-Weinberg law to the case where we have more than
@@ -896,6 +829,118 @@ calculated using only allele frequencies. Because of this heterozygosity
 is often used to describe populations that don’t conform to H-W
 assumptions. In many ways it’s just a convenient measure- like
 temperature.</p>
+<div class="section" id="simulating-hardy-weinberg-expectations">
+<h2>Simulating Hardy-Weinberg Expectations<a class="headerlink" href="#simulating-hardy-weinberg-expectations" title="Permalink to this headline">¶</a></h2>
+<p>Next let’s use SLiM to simulate a finite population that is randomly mating. We will add a single mutation to our population at the beginning at a specific frequency, <span class="math notranslate nohighlight">\(p_0\)</span>,
+and then watch how the genotype frequencies change over time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> slim_magic
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">slim_stats_reps_rstack</span> 10 --out df
+// set up a single locus simulation of drift
+initialize()
+{
+    // set the overall mutation rate
+    // no mutation in this simulation
+    initializeMutationRate(0);
+    // m1 mutation type: neutral
+    initializeMutationType(&quot;m1&quot;, 0.5, &quot;f&quot;, 0.0);
+    // single locus simulation
+    // g1 genomic element type: uses m1 probability 1
+    initializeGenomicElementType(&quot;g1&quot;, c(m1), c(1.0));
+    // uniform chromosome of length 1 site
+    initializeGenomicElement(g1, 0, 0);
+    // uniform recombination along the chromosome
+    initializeRecombinationRate(0);
+    suppressWarnings(T);
+}
+
+// create a population of 100 individuals
+1 {
+    sim.addSubpop(&quot;p1&quot;, 100);
+    // sample 100 haploid genomes 
+    target = sample(p1.genomes, 100);
+    // add a mutation to those genomes
+    // H_0 = 0.5 here
+    target.addNewMutation(m1,0, 0);
+    cat(&quot;generation,p,x11,x12,x22\\n&quot;);
+}
+1:300 late(){
+    inds = p1.sampleIndividuals(100);
+    // record the number of mutations in each individual
+    ind_count = inds.countOfMutationsOfType(m1);
+    counts = c(0, 0, 0);
+    for (x in ind_count)
+        counts[x] = counts[x] + 1;
+    // divide by popn size to get genotype freqs
+    counts = counts / 100;
+    // allele freq of A_1 allele in current gen
+    freqs = sim.mutationFrequencies(p1);
+    // each gen print out the gen, the allele freqs, and the counts
+    if (length(freqs) &gt; 0.0)
+        catn(sim.generation + &quot;,&quot; + freqs + &quot;,&quot; + paste(counts, sep=&quot;,&quot;));
+    }
+// run to generation 0
+300 late() {
+    sim.simulationFinished();
+    }
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next let’s write a tiny function that will take an allele frequency and return the <em>expected</em> HW genotype frequencies</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hwe</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1">#run that function for 100 pts between (0,1)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="n">hwe</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally let’s plot for our simulations how the observed genotype frequencies compare to that expected, given the
+observed allele frequency</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot simulated</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x11</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_11 frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_12 frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x22</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A_22 frequency&quot;</span><span class="p">)</span>
+
+
+<span class="c1">#plot expected</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HWE expected&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">expected</span><span class="p">[</span><span class="mi">2</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;allele frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;genotype frequency&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;genotype frequency&#39;)
+</pre></div>
+</div>
+<img alt="_images/lecture1_16_1.png" src="_images/lecture1_16_1.png" />
+</div>
+</div>
+<p>Wow an awesome fit! Why does this look so good?</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

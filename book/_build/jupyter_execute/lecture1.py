@@ -158,9 +158,7 @@
 #     p = x_{11} + \frac{1}{2}x_{12},
 # \end{aligned}$$
 # 
-# +++
-# and the frequency of
-# the $A_2$ allele is 
+# and the frequency of the $A_2$ allele is 
 # 
 # $$\begin{aligned}
 #     q = 1 - p =  x_{22} + \frac{1}{2}x_{12}.\end{aligned}$$
@@ -333,57 +331,6 @@
 # 
 
 # 
-
-# In[1]:
-
-
-get_ipython().run_line_magic('load_ext', 'slim_magic')
-
-import pandas as pd
-import numpy as np
-from matplotlib import pyplot as plt
-from IPython.display import display, SVG
-
-
-# In[2]:
-
-
-get_ipython().run_cell_magic('slim_stats_reps_rstack', '10 --out df', '// set up a single locus simulation of drift\ninitialize()\n{\n    // set the overall mutation rate\n    initializeMutationRate(0);\n    // m1 mutation type: neutral\n    initializeMutationType("m1", 0.5, "f", 0.0);\n    // g1 genomic element type: uses m1 probability 1\n    initializeGenomicElementType("g1", c(m1), c(1.0));\n    // uniform chromosome of length 1 site\n    initializeGenomicElement(g1, 0, 0);\n    // uniform recombination along the chromosome\n    initializeRecombinationRate(1e-8);\n    suppressWarnings(T);\n}\n\n// create a population of 100 individuals\n1 {\n    sim.addSubpop("p1", 100);\n    // sample 100 haploid genomes \n    target = sample(p1.genomes, 100);\n    // add a mutation to those genomes\n    // H_0 = 0.5 here\n    target.addNewMutation(m1,0, 0);\n    cat("generation,p,x11,x12,x22\\\\n");\n}\n1:300 late(){\n    inds = p1.sampleIndividuals(100);\n    ind_count = inds.countOfMutationsOfType(m1);\n    counts = c(0, 0, 0);\n    for (x in ind_count)\n        counts[x] = counts[x] + 1;\n    counts = counts / 100;\n    freqs = sim.mutationFrequencies(p1);\n    if (length(freqs) > 0.0)\n        catn(sim.generation + "," + freqs + "," + paste(counts, sep=","));\n    }\n// run to generation 0\n300 late() {\n    sim.simulationFinished();\n    }')
-
-
-# ## HWE Expectations
-# let's write a function to compute the HW expected genotype frequencies from the allele frequency, $p$
-
-# In[3]:
-
-
-def hwe(p):
-    return np.array([p**2, 2 * p * (1 - p), (1 - p)**2])
-
-#run that function for 100 pts between (0,1)
-expected = hwe(np.linspace(0,1,100))
-
-
-# In[4]:
-
-
-#plot simulated
-plt.scatter(df.p, df.x11, label="A_11 frequency")
-plt.scatter(df.p, df.x12, label="A_12 frequency")
-plt.scatter(df.p, df.x22, label="A_22 frequency")
-
-
-#plot expected
-plt.plot(np.linspace(0,1,100),expected[0,:], c="red", linestyle="dotted", label="HWE expected")
-plt.plot(np.linspace(0,1,100),expected[1,:], c="red", linestyle="dotted")
-plt.plot(np.linspace(0,1,100),expected[2,:], c="red", linestyle="dotted")
-
-plt.legend()
-plt.xlabel("allele frequency")
-plt.ylabel("genotype frequency")
-
-
-# 
 # # Heterozygosity 
 # 
 # As we talked about in the last lecture, getting a handle on the amounts
@@ -401,12 +348,29 @@ plt.ylabel("genotype frequency")
 # what allele frequency is the probability of sampling a heterozygote from
 # a population maximized? Does this make intuitive sense to you?
 # 
-# ```{figure} figures/hetGraph.png
-# ---
-# ---
-# The frequency of heterozygotes as a function of allele frequency in
-# H-W equilibrium populations
-# ```
+# 
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def het(p):
+    """
+    Calculate the expected heterozygosity of a population
+    from the allele frequency, p
+    """
+    return np.array(2 * p * (1 - p))
+
+allele_freqs = np.linspace(0,1,100)
+expected_het = het(allele_freqs)
+plt.scatter(allele_freqs, expected_het, label="expected heterozygosity", c="black")
+
+plt.xlabel("allele frequency")
+plt.ylabel("expected heterozygosity")
+
+
 # 
 # Before moving on to a formal treatment of heterozygosity, let's first
 # generalize the Hardy-Weinberg law to the case where we have more than
@@ -443,8 +407,63 @@ plt.ylabel("genotype frequency")
 # temperature.
 # 
 
-# In[ ]:
+# ## Simulating Hardy-Weinberg Expectations
+# 
+# Next let's use SLiM to simulate a finite population that is randomly mating. We will add a single mutation to our population at the beginning at a specific frequency, $p_0$, 
+# and then watch how the genotype frequencies change over time.
+# 
+
+# In[2]:
 
 
+get_ipython().run_line_magic('load_ext', 'slim_magic')
+
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+from IPython.display import display, SVG
 
 
+# 
+
+# In[3]:
+
+
+get_ipython().run_cell_magic('slim_stats_reps_rstack', '10 --out df', '// set up a single locus simulation of drift\ninitialize()\n{\n    // set the overall mutation rate\n    // no mutation in this simulation\n    initializeMutationRate(0);\n    // m1 mutation type: neutral\n    initializeMutationType("m1", 0.5, "f", 0.0);\n    // single locus simulation\n    // g1 genomic element type: uses m1 probability 1\n    initializeGenomicElementType("g1", c(m1), c(1.0));\n    // uniform chromosome of length 1 site\n    initializeGenomicElement(g1, 0, 0);\n    // uniform recombination along the chromosome\n    initializeRecombinationRate(0);\n    suppressWarnings(T);\n}\n\n// create a population of 100 individuals\n1 {\n    sim.addSubpop("p1", 100);\n    // sample 100 haploid genomes \n    target = sample(p1.genomes, 100);\n    // add a mutation to those genomes\n    // H_0 = 0.5 here\n    target.addNewMutation(m1,0, 0);\n    cat("generation,p,x11,x12,x22\\\\n");\n}\n1:300 late(){\n    inds = p1.sampleIndividuals(100);\n    // record the number of mutations in each individual\n    ind_count = inds.countOfMutationsOfType(m1);\n    counts = c(0, 0, 0);\n    for (x in ind_count)\n        counts[x] = counts[x] + 1;\n    // divide by popn size to get genotype freqs\n    counts = counts / 100;\n    // allele freq of A_1 allele in current gen\n    freqs = sim.mutationFrequencies(p1);\n    // each gen print out the gen, the allele freqs, and the counts\n    if (length(freqs) > 0.0)\n        catn(sim.generation + "," + freqs + "," + paste(counts, sep=","));\n    }\n// run to generation 0\n300 late() {\n    sim.simulationFinished();\n    }')
+
+
+# Next let's write a tiny function that will take an allele frequency and return the *expected* HW genotype frequencies
+
+# In[4]:
+
+
+def hwe(p):
+    return np.array([p**2, 2 * p * (1 - p), (1 - p)**2])
+
+#run that function for 100 pts between (0,1)
+expected = hwe(np.linspace(0,1,100))
+
+
+# Finally let's plot for our simulations how the observed genotype frequencies compare to that expected, given the 
+# observed allele frequency
+
+# In[5]:
+
+
+#plot simulated
+plt.scatter(df.p, df.x11, label="A_11 frequency")
+plt.scatter(df.p, df.x12, label="A_12 frequency")
+plt.scatter(df.p, df.x22, label="A_22 frequency")
+
+
+#plot expected
+plt.plot(np.linspace(0,1,100),expected[0,:], c="red", linestyle="dotted", label="HWE expected")
+plt.plot(np.linspace(0,1,100),expected[1,:], c="red", linestyle="dotted")
+plt.plot(np.linspace(0,1,100),expected[2,:], c="red", linestyle="dotted")
+
+plt.legend()
+plt.xlabel("allele frequency")
+plt.ylabel("genotype frequency")
+
+
+# Wow an awesome fit! Why does this look so good? 
