@@ -132,11 +132,6 @@
    Molecular Evolution
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="test.html">
-   hello
-  </a>
- </li>
 </ul>
 
     </div>
@@ -252,6 +247,26 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dna-variation">
+   DNA variation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adh-in-drosophila-a-case-study">
+     <em>
+      Adh
+     </em>
+     in Drosophila: a case study
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loci-alleles-and-identity">
+   Loci, Alleles, and Identity
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#genotype-and-allele-frequencies">
    Genotype and Allele Frequencies
   </a>
@@ -301,6 +316,26 @@
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-population-genetics">
    What is Population Genetics?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dna-variation">
+   DNA variation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adh-in-drosophila-a-case-study">
+     <em>
+      Adh
+     </em>
+     in Drosophila: a case study
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loci-alleles-and-identity">
+   Loci, Alleles, and Identity
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -380,6 +415,78 @@ homogenize different populations while drift tends to make them
 different). Hence, the interaction of these forces is what we are really
 interested in (a later lecture), but since this can get very complex
 mathematically, we will start by analyzing one force at a time.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dna-variation">
+<h1>DNA variation<a class="headerlink" href="#dna-variation" title="Permalink to this headline">¶</a></h1>
+<p>The fundamental unit of population genetic variation is a single DNA difference between individuals of a species. These differences might take the shape
+of a so-called Simple Nucleotide Polymorphism (SNP) wherein an individual basepair has been swapped for another, or it could be that multiple basepairs have
+been deleted in one individual relative to another. To make this all concrete, let’s focus on a single gene with a long history of study.</p>
+<div class="section" id="adh-in-drosophila-a-case-study">
+<h2><em>Adh</em> in Drosophila: a case study<a class="headerlink" href="#adh-in-drosophila-a-case-study" title="Permalink to this headline">¶</a></h2>
+<p>The alcohol dehydrogenase gene, (<em>Adh</em>), is an incredibly well studied enzyme, both from the perspective of its biochemical properties, but also
+as an early example of protein and genetic variation that was studied but many, many population geneticists. In the next few sections we’ll come
+back to this locus again and again.</p>
+<p>To orient us, I’ve taken Figure 1 directly from the now classic study DNA variation at <em>Adh</em> by
+<a class="reference external" href="https://doi.org/10.1038/304412a0">Marty Kreitman (1983)</a> shows the structure of the <em>Adh</em> protein coding gene.
+This is a pretty average gene in the drosophila genome– a few exons, separated by introns that are a few hundreds of bp long.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><img alt="Adh structure" src="_images/adh_structure_small.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><em>Fig. 1.</em> Drosophila <em>Adh</em> gene structure, from Kreitman (1983)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Kreitman, in what became a landmark study, described nucleotide variation in 11 strains of <em>Drosophila melanogaster</em> collected
+from a worldwide sample. In what more or less corresponds to all the “raw” data, take a look at the table of nucleotide
+variation shown in Figure 2. Here we see how sites vary according to their location in the gene structure.
+There are a few things to note:</p>
+<ul class="simple">
+<li><p>there are variable positions in each part of the gene</p></li>
+<li><p>there are <em>more</em> variable positions in introns than in exons on a percentage basis</p></li>
+<li><p>some alleles (variant states) seem to be inherited <em>together</em> (more on linkage later)</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><img alt="Adh polymorphism" src="_images/adh_poly_small.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><em>Fig. 2.</em> DNA polymorphism at <em>Adh</em>, from Kreitman (1983)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="loci-alleles-and-identity">
+<h1>Loci, Alleles, and Identity<a class="headerlink" href="#loci-alleles-and-identity" title="Permalink to this headline">¶</a></h1>
+<p>Before we go any further we need to get some nomenclature under our belts. The first distinction is that between <em>locus</em> and <em>alleles</em>.
+A <strong>locus</strong> is the chromosomal address where a DNA sequence lives. An <strong>allele</strong> is the version of that DNA sequence found at a locus.
+So we can talk about the <em>Adh</em> locus, the gene region on the chromosome, and we can talk about the <em>alleles</em> that we find at that locus
+(e.g., those shown in Figure 2). Most organisms are diploid, that is they contain two complete copies of the genome, one inherited from mom
+the other from dad. This means that any diploid individual may have two alleles at a locus, the maternal and paternal alleles.</p>
+<p>Population genetics is concerned with describing patterns of allelic variation in natural populations of organism. Indeed for the population
+geneticist there are three ways that alleles might differ from each other:</p>
+<ul>
+<li><p><strong>By origin</strong> alleles may differ by origin in a generation if they come from the same locus on different chromosomes in the previous
+generation. For instance the alleles at a particular locus in a diploid individual differ by origin, because each was inherited from a
+distinct parental chromosome (mom and dad). Also if we consider the 11 <em>Adh</em> alleles shown above, those are different by origin.</p>
+<br>
+</li>
+<li><p><strong>By state</strong> alleles are said to be different by state if they, in someway, are different at the molecular level. For instance if we are
+looking at DNA sequences, two alleles are different by state if they have different sequences. These alleles could differ at a single
+nucleotide site or many, but either way they are said to differ by state. Moreover, we might not be considering DNA sequences at all.
+Alleles can vary by state if they are different lengths, or have different electrophoretic mobilities on a gel, or could be in reference to
+a specific position along a nucleotide or Amino Acid position. For instance, in Figure 2, there are (at least) two classes of alleles
+that differ by state, the <em>Adh-f</em> and <em>Adh-s</em> alleles which correspond to the fast vs slow allozyme polymorphism.</p>
+<br>
+</li>
+<li><p><strong>By descent</strong> allele differ by descent if they don’t share a common ancestor recently. In general all alleles at a locus are eventually
+descended from a common ancestor, so this definition is really only useful in thinking about shorter timescales, say fewer than 10 generations.
+Two alleles that differ by descent may or may not also differ by state.</p></li>
+</ul>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="genotype-and-allele-frequencies">
 <h1>Genotype and Allele Frequencies<a class="headerlink" href="#genotype-and-allele-frequencies" title="Permalink to this headline">¶</a></h1>
@@ -569,19 +676,19 @@ at our locus are</p>
 allele frequencies, thus if you know <span class="math notranslate nohighlight">\(p\)</span> you know all of the genotype
 frequencies.</p>
 <p>A couple of things to note about random mating in our diploid
-hermaphrodites:\</p>
+hermaphrodites:</p>
 <ol class="simple">
 <li><p>Allele frequencies are unaffected by random mating. Random mating can
 change genotype frequencies, but not allele frequencies, thus after one
 round of mating Hardy-Weinberg genotype frequencies will remain
 unchanged, forever!</p></li>
-</ol>
-<p>2) In our diploid hermaphrodites it only takes one generation to
+<li><p>In our diploid hermaphrodites it only takes one generation to
 achieve H-W equilibrium proportions. In species with separate sexes it
-takes two generations.</p>
-<p>3) To come up with genotype frequencies after random mating we only
+takes two generations.</p></li>
+<li><p>To come up with genotype frequencies after random mating we only
 need to know allele frequencies before random mating, not genotype
-frequencies.</p>
+frequencies.</p></li>
+</ol>
 <p>Let’s step back to our numerical example from human sickle cell anemia.
 Our goal will be to predict Hardy-Weinberg expected values for genotype
 frequencies at this locus, given our observed allele frequencies. We
@@ -733,7 +840,7 @@ initialize()
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;genotype frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/lecture1_7_1.png" src="_images/lecture1_7_1.png" />
+<img alt="_images/lecture1_11_1.png" src="_images/lecture1_11_1.png" />
 </div>
 </div>
 </div>

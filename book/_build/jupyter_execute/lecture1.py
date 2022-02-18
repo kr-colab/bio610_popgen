@@ -5,6 +5,8 @@
 # # Introduction to Population Genetics
 # 
 # 
+
+# 
 # # What is Population Genetics?
 # 
 # Population genetics is primarily concerned with the genetic basis of
@@ -51,6 +53,70 @@
 # interested in (a later lecture), but since this can get very complex
 # mathematically, we will start by analyzing one force at a time.
 # 
+
+# # DNA variation
+# 
+# The fundamental unit of population genetic variation is a single DNA difference between individuals of a species. These differences might take the shape
+# of a so-called Simple Nucleotide Polymorphism (SNP) wherein an individual basepair has been swapped for another, or it could be that multiple basepairs have 
+# been deleted in one individual relative to another. To make this all concrete, let's focus on a single gene with a long history of study.
+# 
+# ## *Adh* in Drosophila: a case study
+# 
+# The alcohol dehydrogenase gene, (*Adh*), is an incredibly well studied enzyme, both from the perspective of its biochemical properties, but also
+# as an early example of protein and genetic variation that was studied but many, many population geneticists. In the next few sections we'll come
+# back to this locus again and again. 
+# 
+# To orient us, I've taken Figure 1 directly from the now classic study DNA variation at *Adh* by
+# [Marty Kreitman (1983)](https://doi.org/10.1038/304412a0) shows the structure of the *Adh* protein coding gene.
+# This is a pretty average gene in the drosophila genome-- a few exons, separated by introns that are a few hundreds of bp long. 
+# 
+#  
+# | ![Adh structure](figures/adh_structure_small.png "Fig. 1. ") |
+# |:--:| 
+# | *Fig. 1.* Drosophila *Adh* gene structure, from Kreitman (1983) |
+# 
+# Kreitman, in what became a landmark study, described nucleotide variation in 11 strains of *Drosophila melanogaster* collected
+# from a worldwide sample. In what more or less corresponds to all the "raw" data, take a look at the table of nucleotide
+# variation shown in Figure 2. Here we see how sites vary according to their location in the gene structure.
+# There are a few things to note:
+# - there are variable positions in each part of the gene
+# - there are _more_ variable positions in introns than in exons on a percentage basis
+# - some alleles (variant states) seem to be inherited _together_ (more on linkage later)
+# 
+# | ![Adh polymorphism](figures/adh_poly_small.png)|
+# |:--:| 
+# | *Fig. 2.* DNA polymorphism at *Adh*, from Kreitman (1983) |
+# 
+
+# # Loci, Alleles, and Identity
+# 
+# Before we go any further we need to get some nomenclature under our belts. The first distinction is that between *locus* and *alleles*. 
+# A **locus** is the chromosomal address where a DNA sequence lives. An **allele** is the version of that DNA sequence found at a locus.
+# So we can talk about the *Adh* locus, the gene region on the chromosome, and we can talk about the *alleles* that we find at that locus
+# (e.g., those shown in Figure 2). Most organisms are diploid, that is they contain two complete copies of the genome, one inherited from mom
+# the other from dad. This means that any diploid individual may have two alleles at a locus, the maternal and paternal alleles.
+# 
+# Population genetics is concerned with describing patterns of allelic variation in natural populations of organism. Indeed for the population
+# geneticist there are three ways that alleles might differ from each other:
+# 
+# * **By origin** alleles may differ by origin in a generation if they come from the same locus on different chromosomes in the previous
+#   generation. For instance the alleles at a particular locus in a diploid individual differ by origin, because each was inherited from a
+#   distinct parental chromosome (mom and dad). Also if we consider the 11 *Adh* alleles shown above, those are different by origin.
+#   
+#   <br>
+# * **By state** alleles are said to be different by state if they, in someway, are different at the molecular level. For instance if we are 
+#   looking at DNA sequences, two alleles are different by state if they have different sequences. These alleles could differ at a single
+#   nucleotide site or many, but either way they are said to differ by state. Moreover, we might not be considering DNA sequences at all.
+#   Alleles can vary by state if they are different lengths, or have different electrophoretic mobilities on a gel, or could be in reference to
+#   a specific position along a nucleotide or Amino Acid position. For instance, in Figure 2, there are (at least) two classes of alleles
+#   that differ by state, the *Adh-f* and *Adh-s* alleles which correspond to the fast vs slow allozyme polymorphism.
+# 
+#   <br>
+# * **By descent** allele differ by descent if they don't share a common ancestor recently. In general all alleles at a locus are eventually
+#   descended from a common ancestor, so this definition is really only useful in thinking about shorter timescales, say fewer than 10 generations.
+#   Two alleles that differ by descent may or may not also differ by state.
+
+# 
 # # Genotype and Allele Frequencies 
 # 
 # To begin we need to understand some simple population genetic
@@ -70,9 +136,9 @@
 # 
 # 
 #   
-#   | Genotype:             | $A_1A_1$   | $A_1A_2$   | $A_2A_2$
-#   | ----------------------|------------|------------|-----------
-#   | Relative Frequency:   | $x_{11}$   | $x_{12}$   | $x_{22}$
+# | Genotype:             | $A_1A_1$   | $A_1A_2$   | $A_2A_2$
+# | ----------------------|------------|------------|-----------
+# | Relative Frequency:   | $x_{11}$   | $x_{12}$   | $x_{22}$
 #   
 # 
 # 
@@ -127,12 +193,10 @@
 # population of $N = 100$ individuals. We observe the following number of
 # genotypes at our $A$ locus:
 # 
-# ```{table}
 # | Genotype:             | $A_1A_1$ | $A_1A_2$ | $A_2A_2$ |
 # |-----------------------|----------|----------|----------|
 # | Observed Numbers:     | 25       | 50       | 25       |
 # | Relative Frequencies: | 0.25     | 0.50     | 0.25     |
-# ```
 # 
 # 
 # The relative genotypic frequencies, the $x_{ij}s$, are simple to
@@ -213,17 +277,17 @@
 # frequencies.
 # 
 # A couple of things to note about random mating in our diploid
-# hermaphrodites:\
+# hermaphrodites:
 # 1) Allele frequencies are unaffected by random mating. Random mating can
 # change genotype frequencies, but not allele frequencies, thus after one
 # round of mating Hardy-Weinberg genotype frequencies will remain
 # unchanged, forever!
 # 
-# 2\) In our diploid hermaphrodites it only takes one generation to
+# 2) In our diploid hermaphrodites it only takes one generation to
 # achieve H-W equilibrium proportions. In species with separate sexes it
 # takes two generations.
 # 
-# 3\) To come up with genotype frequencies after random mating we only
+# 3) To come up with genotype frequencies after random mating we only
 # need to know allele frequencies before random mating, not genotype
 # frequencies.
 # 
