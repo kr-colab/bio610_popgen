@@ -144,6 +144,11 @@
    Exercise 1
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise2.html">
+   Exercise 2
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -183,7 +188,10 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="_sources/lecture2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/lecture2.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -220,6 +228,23 @@
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kr-colab/bio610_popgen/main?urlpath=lab/tree/book/lecture2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -481,8 +506,14 @@ write down its frequency after a round of selection <span class="math notranslat
     p' = \frac{p^2w_{11} + pq{w_{12}}}{\bar{w}}.
 \end{aligned}\]</div>
 <p>Ask yourself this question: why is the second term in the numerator
-<span class="math notranslate nohighlight">\(pqw_{12}\)</span> and not <span class="math notranslate nohighlight">\(2pqw_{12}\)</span>? Got it? You guys are all gonna be great
-little population geneticists one day!</p>
+<span class="math notranslate nohighlight">\(pqw_{12}\)</span> and not <span class="math notranslate nohighlight">\(2pqw_{12}\)</span>?</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<p>write a function to compute <span class="math notranslate nohighlight">\(p'\)</span> from some input <span class="math notranslate nohighlight">\(p\)</span>
+and some set of fitness values, <span class="math notranslate nohighlight">\(w_{ii}s\)</span>.
+Next, use this function to plot how selection will change allele
+allele frequencies over time.</p>
+</div>
 <p>The next order of business is to write down the change in allele
 frequency due to selection in a single generation. That is
 <span class="math notranslate nohighlight">\(\Delta_sp = p' - p\)</span>,</p>
@@ -617,6 +648,13 @@ selection is then</p>
 <p>The only thing I’ve done
 to get these formulations is replace <span class="math notranslate nohighlight">\(w_{11}, w_{12}\)</span> and <span class="math notranslate nohighlight">\(w_{22}\)</span> with
 <span class="math notranslate nohighlight">\(1,1-hs\)</span>, and <span class="math notranslate nohighlight">\(1-s\)</span> respectively.</p>
+<div class="note admonition">
+<p class="admonition-title">Exercise</p>
+<p>rewrite your function from above to compute <span class="math notranslate nohighlight">\(p'\)</span>
+from some input <span class="math notranslate nohighlight">\(p\)</span> and a value of <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(s\)</span>
+Next, use this function to plot how selection will change allele
+allele frequencies over time.</p>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="flavors-of-selection">
 <h1>Flavors of selection<a class="headerlink" href="#flavors-of-selection" title="Permalink to this headline">¶</a></h1>

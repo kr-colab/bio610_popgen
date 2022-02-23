@@ -14,3 +14,4 @@ parts:
 - caption: Exercises
   chapters:
   - file: exercise1
+  - file: exercise2

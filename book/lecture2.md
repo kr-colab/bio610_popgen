@@ -1,3 +1,17 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
 # Natural Selection
 
 # Natural Selection 
@@ -99,8 +113,14 @@ $$\begin{aligned}
 \end{aligned}$$ 
 
 Ask yourself this question: why is the second term in the numerator
-$pqw_{12}$ and not $2pqw_{12}$? Got it? You guys are all gonna be great
-little population geneticists one day!
+$pqw_{12}$ and not $2pqw_{12}$?
+
+```{admonition} Exercise
+write a function to compute $p'$ from some input $p$
+and some set of fitness values, $w_{ii}s$.
+Next, use this function to plot how selection will change allele 
+allele frequencies over time. 
+```
 
 The next order of business is to write down the change in allele
 frequency due to selection in a single generation. That is
@@ -208,6 +228,17 @@ $$\begin{aligned}
 The only thing I've done
 to get these formulations is replace $w_{11}, w_{12}$ and $w_{22}$ with
 $1,1-hs$, and $1-s$ respectively.
+
+
+```{admonition} Exercise
+:class: note
+
+rewrite your function from above to compute $p'$ 
+from some input $p$ and a value of $h$ and $s$
+Next, use this function to plot how selection will change allele 
+allele frequencies over time. 
+
+```
 
 # Flavors of selection 
 
