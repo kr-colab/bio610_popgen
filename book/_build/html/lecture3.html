@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mutation, Migration, with and without selection &#8212; Bio 610-- Intro to Population Genetics</title>
+    <title>Mutation and Migration &#8212; Bio 610-- Intro to Population Genetics</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -119,7 +119,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Mutation, Migration, with and without selection
+   Mutation and Migration
   </a>
  </li>
  <li class="toctree-l1">
@@ -142,6 +142,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="exercise1.html">
    Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise2.html">
+   Exercise 2
   </a>
  </li>
 </ul>
@@ -185,9 +190,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/lecture3.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/lecture3.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -221,6 +226,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kr-colab/bio610_popgen/main?urlpath=lab/tree/book/lecture3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -233,22 +255,19 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Mutation, Migration, with and without selection
+   Mutation and Migration
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mutation-and-evolution">
-   Mutation and Evolution
-  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutation-and-evolution">
+     Mutation and Evolution
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mutation-selection-balance">
    Mutation-Selection Balance
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#migration-and-gene-flow">
-   Migration and Gene Flow
   </a>
  </li>
 </ul>
@@ -261,7 +280,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Mutation, Migration, with and without selection</h1>
+                <h1>Mutation and Migration</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -273,22 +292,19 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Mutation, Migration, with and without selection
+   Mutation and Migration
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mutation-and-evolution">
-   Mutation and Evolution
-  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutation-and-evolution">
+     Mutation and Evolution
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mutation-selection-balance">
    Mutation-Selection Balance
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#migration-and-gene-flow">
-   Migration and Gene Flow
   </a>
  </li>
 </ul>
@@ -300,11 +316,10 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="mutation-migration-with-and-without-selection">
-<h1>Mutation, Migration, with and without selection<a class="headerlink" href="#mutation-migration-with-and-without-selection" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="mutation-and-evolution">
-<h1>Mutation and Evolution<a class="headerlink" href="#mutation-and-evolution" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="mutation-and-migration">
+<h1>Mutation and Migration<a class="headerlink" href="#mutation-and-migration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mutation-and-evolution">
+<h2>Mutation and Evolution<a class="headerlink" href="#mutation-and-evolution" title="Permalink to this headline">¶</a></h2>
 <p>Previously we learned about how selection can change the frequencies of
 alleles and genotypes in populations. Selection typically eliminates
 variation from within populations. (The general exception to this claim
@@ -346,7 +361,34 @@ previously for selection</p>
      &amp; = &amp; -up \\
 \end{aligned}\end{split}\]</div>
 <p>notice that our notation– <span class="math notranslate nohighlight">\(\Delta_up\)</span>
-– emphasizes the source of the change in allele frequency is mutation.</p>
+– emphasizes the source of the change in allele frequency is mutation.
+Let’s plot this as a function of <span class="math notranslate nohighlight">\(p\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">delta_p_u</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">u</span> <span class="o">*</span> <span class="n">p</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">frequencies</span> <span class="o">=</span> <span class="n">delta_p_u</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd218316820&gt;]
+</pre></div>
+</div>
+<img alt="_images/lecture3_2_1.png" src="_images/lecture3_2_1.png" />
+</div>
+</div>
+<p>right! <em>decreasing</em> for all <span class="math notranslate nohighlight">\(p\)</span> except the case where <span class="math notranslate nohighlight">\(p = 0\)</span>!</p>
+<hr class="docutils" />
+<p><strong>Exercise</strong> write a function to explore the dynamics of allele frequency dynamics of this model over time. It should take an initial frequency and a mutation rate as it’s input, and output
+the allele frequency in subsequent generations (perhaps the number of generations could be an input)</p>
+<hr class="docutils" />
 <p>This sort of unidirectional mutation acts to consistently decrease the
 frequency of the <span class="math notranslate nohighlight">\(A_1\)</span> allele from generation to generation. If we
 instead were to study two way mutation, the mutational flux would depend
@@ -358,7 +400,7 @@ intuitively- think about cloning plants from cuttings. In <em>Drosophila</em>,
 which is one of the best studied animals from the perspective of rates
 of spontaneous mutation, the mutation rate per generation per nucleotide
 is on the order of <span class="math notranslate nohighlight">\(10^{-9}\)</span>. This means that mutation changes the
-frequency of alleles are a very slow rate. If we assume that there is
+frequency of alleles at a very slow rate. If we assume that there is
 sufficiently strong selection against the <span class="math notranslate nohighlight">\(A_2\)</span> allele (i.e.
 <span class="math notranslate nohighlight">\(w_{11} &gt;&gt; w_{22}\)</span>), then we can further approximate our change in
 allele frequency due to mutation</p>
@@ -373,6 +415,7 @@ of a deleterious <span class="math notranslate nohighlight">\(A_2\)</span> allel
 frequency due to mutation is independent of allele frequencies. This is
 our first hint that mutation and selection might combine in interesting
 and important ways.</p>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="mutation-selection-balance">
 <h1>Mutation-Selection Balance<a class="headerlink" href="#mutation-selection-balance" title="Permalink to this headline">¶</a></h1>
@@ -423,52 +466,116 @@ mutation rate to those alleles and their selective effects in
 heterozygotes. As we saw earlier, new mutations overwhelmingly are found
 in heterozygous states, so it’s perhaps not surprising that <span class="math notranslate nohighlight">\(h\)</span> should
 dominate the fate of deleterious alleles.</p>
-<p><strong>Problem:</strong> Go through the same steps of approximations that we just
-did to find the Mutation-Selection equilibrium value of mutations which
-are completely recessive (i.e. <span class="math notranslate nohighlight">\(h = 0\)</span>). This would make a heck of an
-exam question….</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> slim_magic
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+</pre></div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="migration-and-gene-flow">
-<h1>Migration and Gene Flow<a class="headerlink" href="#migration-and-gene-flow" title="Permalink to this headline">¶</a></h1>
-<p>In population genetics, the term “migration” is really meant to
-describe Gene flow, defined as the movement of alleles from one area
-(deme, population, region) to another. Gene flow assumes some form of
-dispersal or migration (wind pollination, seed dispersal, birds flying,
-etc.) but dispersal is not gene flow (genes must be transferred, not
-just their carriers)</p>
-<p>We are going to build a model of gene flow in exactly the same way we
-studied mutation. Consider two populations, a mainland population and an
-island population. Each of these populations has the <span class="math notranslate nohighlight">\(A_1\)</span> allele at
-frequencies <span class="math notranslate nohighlight">\(p_{main}\)</span> and <span class="math notranslate nohighlight">\(p_{island}\)</span> respectively. Assume that gene
-flow is one way, from mainland to island and that the proportion of
-individuals who become parents in the island population is <span class="math notranslate nohighlight">\(m\)</span>. Although
-I’ve said this is a proportion, also notice that we could consider this
-a probability interchangeably. After a round of migration, in the island
-population there are then two sources for alleles, they could be from
-the island population originally with probability <span class="math notranslate nohighlight">\(1-m\)</span>, or they could
-have migrated from the mainland with probability <span class="math notranslate nohighlight">\(m\)</span>. This means that
-after migration the allele frequency of <span class="math notranslate nohighlight">\(A_1\)</span> in the island population
-is
-$<span class="math notranslate nohighlight">\(\begin{aligned}
-p_{island}' = p_{island}(1-m) + p_{main}m.
-\end{aligned}\)</span>$</p>
-<p>Simple enough right? Now lets to what comes naturally and study the change in allele
-frequency as a result of mutation. Following what we have done in our
-other analyses,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\Delta_{m}p_{island}  &amp; = &amp; p_{island}' - p_{island} \\
- &amp; = &amp; p_{island}(1-m) + p_{main}m - p_{island} \\
- &amp; = &amp; m(p_{main} - p_{island}) \\
-\end{aligned}\end{split}\]</div>
-<p>Beautiful. Now we have
-a very simple expression for how allele frequencies in the island
-population should change due to gene flow from the mainland population.
-This change in allele frequency makes sense- it only depends on the
-amount of migration and the differences in allele frequencies between
-the two populations. It’s simple enough to generalize this to multiple
-populations, or to populations at different distances away from one
-another, but we won’t cover that here.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">slim_stats_reps_cstack</span> 100 --out neutral
+initialize()
+{
+    // set the overall mutation rate
+    // no mutation in this simulation
+    initializeMutationRate(0.01);
+    // m1 mutation type: neutral
+    initializeMutationType(&quot;m1&quot;, 0.5, &quot;f&quot;, 0.0);
+    // single locus simulation
+    // g1 genomic element type: uses m1 probability 1
+    initializeGenomicElementType(&quot;g1&quot;, c(m1), c(1.0));
+    // uniform chromosome of length 1 site
+    initializeGenomicElement(g1, 0, 0);
+    // uniform recombination along the chromosome
+    initializeRecombinationRate(0);
+    suppressWarnings(T);
+}
+
+// create a population of 100 individuals
+1 {
+    sim.addSubpop(&quot;p1&quot;, 100);
+    // sample 100 haploid genomes 
+    target = sample(p1.genomes, 100);
+    // add a mutation to those genomes
+    // H_0 = 0.5 here
+    target.addNewMutation(m1,0, 0);
+    cat(&quot;generation,p\\n&quot;);
+}
+1:1000 late(){
+    // allele freq of A_1 allele in current gen
+    freqs = sim.mutationFrequencies(p1);
+    // each gen print out the gen and the allele freqs 
+    catn(sim.generation + &quot;,&quot; + freqs[0]);
+    }
+// run to generation 0
+300 late() {
+    sim.simulationFinished();
+    }
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">slim_stats_reps_cstack</span> 100 --out selection
+// set up a single locus simulation of selection
+initialize()
+{
+    // set the overall mutation rate
+    // no mutation in this simulation
+    initializeMutationRate(0.01);
+    // m1 mutation type: neutral
+    initializeMutationType(&quot;m1&quot;, 0.5, &quot;f&quot;, -0.1);
+    // single locus simulation
+    // g1 genomic element type: uses m1 probability 1
+    initializeGenomicElementType(&quot;g1&quot;, c(m1), c(1.0));
+    // uniform chromosome of length 1 site
+    initializeGenomicElement(g1, 0, 0);
+    // uniform recombination along the chromosome
+    initializeRecombinationRate(0);
+    suppressWarnings(T);
+}
+
+// create a population of 100 individuals
+1 {
+    sim.addSubpop(&quot;p1&quot;, 100);
+    cat(&quot;generation,p\\n&quot;);
+}
+1:1000 late(){
+    // allele freq of A_1 allele in current gen
+    freqs = sim.mutationFrequencies(p1);
+    // each gen print out the gen and the allele freqs 
+    if( length(freqs) &gt; 0)
+        catn(sim.generation + &quot;,&quot; + freqs[0]);
+    }
+// run to generation 0
+300 late() {
+    sim.simulationFinished();
+    }
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">neutral</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;neutral&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">selection</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;selection&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/lecture3_10_0.png" src="_images/lecture3_10_0.png" />
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
