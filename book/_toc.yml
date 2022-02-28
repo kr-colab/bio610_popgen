@@ -11,6 +11,7 @@ parts:
   - file: lecture3
   - file: lecture4
   - file: lecture5
+  - file: genetic_drift
 - caption: Exercises
   chapters:
   - file: exercise1
