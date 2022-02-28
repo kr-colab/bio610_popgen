@@ -1,0 +1,676 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genetic Drift &#8212; Bio 610-- Intro to Population Genetics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tree.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Bio 610-- Intro to Population Genetics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to Population Genetics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Population Genetics Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1.html">
+   Introduction to Population Genetics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2.html">
+   Natural Selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3.html">
+   Mutation and Migration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4.html">
+   Migration and Gene Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5.html">
+   Molecular Evolution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise1.html">
+   Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise2.html">
+   Exercise 2
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture4_oldmd.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kr-colab/bio610_popgen"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kr-colab/bio610_popgen/issues/new?title=Issue%20on%20page%20%2Flecture4_oldmd.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Genetic Drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genetic-drift-the-algorithm">
+   Genetic drift: the algorithm
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genetic-drift-as-a-dispersive-force">
+   Genetic drift as a dispersive force
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decay-in-heterozygosity-due-to-drift">
+   Decay in heterozygosity due to drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixation-probability-of-a-neutral-mutation">
+   Fixation Probability of a neutral mutation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutation-and-drift">
+   Mutation and Drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effective-population-size">
+   Effective population size
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Genetic Drift</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Genetic Drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genetic-drift-the-algorithm">
+   Genetic drift: the algorithm
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genetic-drift-as-a-dispersive-force">
+   Genetic drift as a dispersive force
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decay-in-heterozygosity-due-to-drift">
+   Decay in heterozygosity due to drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixation-probability-of-a-neutral-mutation">
+   Fixation Probability of a neutral mutation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutation-and-drift">
+   Mutation and Drift
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effective-population-size">
+   Effective population size
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="genetic-drift">
+<h1>Genetic Drift<a class="headerlink" href="#genetic-drift" title="Permalink to this headline">¶</a></h1>
+<p>Genetic drift refers to random fluctuations in allele frequencies due to
+random sampling of alleles in finite populations. The previous lectures
+have all dealt with deterministic (predictable) evolutionary forces
+often referred to as linear pressures. Genetic drift is a stochastic
+(random) force that can scramble the predictable effects of selection,
+mutation, and gene flow. While it might seem that a random force would
+be of little significance to evolutionary “progress” (we’ll confront
+this loaded term later), genetic drift <em>may be</em> an extremely important
+force in evolution. However, its strength depends on the size of the
+population, as a simple exercise in coin tossing will illustrate. In ten
+tosses you might easily get seven heads; in 1000 tosses, however, you
+would never get 700 heads with a “fair” coin. The same sort of random
+fluctuation in allele frequencies can occur in small populations:
+consider a bag full of red and black marbles each in equal frequency;
+pull out a small handful and the frequency in your hand will probably
+not equal the frequency in the original bag. Let that handful determine
+the frequency in a new population. A second small handful will randomly
+shift the frequency to yet another frequency. If you pulled out all the
+marbles in the bag (= large population) then the frequency would be
+maintained exactly in the next generation. Genetic drift is not a potent
+evolutionary force in very large randomly mating populations. See <code class="xref std std-numref docutils literal notranslate"><span class="pre">urn</span></code>
+for a graphical illustration of this.</p>
+<div class="figure align-default" id="urn">
+<a class="reference internal image-reference" href="_images/urn.png"><img alt="_images/urn.png" src="_images/urn.png" style="width: 420.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Urn problem captures genetic drift</strong>. In this experiment we start
+with an urn full of red and black marbles at generation 1. We then
+randomly select marbles, sampling with replacement to form the next
+generation. Notice how random sampling after 10 generations has
+substantially changed the frequency of the red marble.</span><a class="headerlink" href="#urn" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="genetic-drift-the-algorithm">
+<h1>Genetic drift: the algorithm<a class="headerlink" href="#genetic-drift-the-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>Here’s a very simple algorithm that describes all of the essentials of
+genetic drift. If you already know how to program a computer, a very
+good exercise would be to code this up. If you don’t know how to program
+yet, but are interested in learning come find me and I’ll show you a
+nice way to write this in a simple programing language called R, or
+really any language you like.</p>
+<p>So here’s the algorithm:</p>
+<ol class="simple">
+<li><p>Choose an allele at random from the 2N alleles in the parental
+generation</p></li>
+<li><p>Make an exact copy of the allele</p></li>
+<li><p>Place the copy of the allele in the next generation</p></li>
+<li><p>Go back to 1 until the next generation has 2N alleles</p></li>
+</ol>
+<p>This is exactly the algorithm I used to generate <code class="xref std std-numref docutils literal notranslate"><span class="pre">urn</span></code>. Can you
+replicate this figure?</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="genetic-drift-as-a-dispersive-force">
+<h1>Genetic drift as a dispersive force<a class="headerlink" href="#genetic-drift-as-a-dispersive-force" title="Permalink to this headline">¶</a></h1>
+<p>One of the main ways that genetic drift acts is as a dispersive force on
+allele frequencies (i.e. it moves allele frequencies about randomly). A
+neat way to see this is to imagine replicate populations (either
+experimental or natural). Consider a grid of small populations (e.g.,
+ponds in New Hampshire), all with the same small population size and all
+starting at time t with <span class="math notranslate nohighlight">\(p = q= 0.5\)</span>. Through time each population will
+experience genetic drift due to random sampling and the frequencies in
+each population will <strong>diverge</strong>. The distribution of frequencies
+changes over time from a tight distribution (all 0.5), to a flat
+distribution (some populations at <span class="math notranslate nohighlight">\(p = 0.1\)</span>, some at <span class="math notranslate nohighlight">\(p=0.9\)</span> and all
+frequencies in between), to fixation (<span class="math notranslate nohighlight">\(p =1.0\)</span>) or loss (<span class="math notranslate nohighlight">\(p = 0.0\)</span>) of
+the alleles in all populations (think of the Buri experiment). Fixation
+is when all alleles in the population are <span class="math notranslate nohighlight">\(A_1\)</span>; this necessarily
+implies loss of the <span class="math notranslate nohighlight">\(A_2\)</span> allele (“fixation” or “loss” should only be
+used with reference to a specific allele). If each population starts at
+<span class="math notranslate nohighlight">\(p = 0.5\)</span>, then at the end, when all populations have lost their
+variation, 50% of the populations will be fixed for the <span class="math notranslate nohighlight">\(A_1\)</span> allele and
+50% will be fixed for the <span class="math notranslate nohighlight">\(A_2\)</span> allele (latter = “loss” for the <span class="math notranslate nohighlight">\(A_1\)</span>
+allele, get it?). If the initial frequency was <span class="math notranslate nohighlight">\(p = 0.7\)</span>, then 70% of
+the populations would be fixed for the <span class="math notranslate nohighlight">\(A_1\)</span> allele (again, assuming no
+selection, migration, mutation).</p>
+<p>Main Points: 1) variation lost from <em>within</em> populations but created
+<em>between</em> replicate populations, 2) alleles fixed or lost from
+populations due to drift, 3) genetic divergence of populations entirely
+by chance! No directionality! This implies that evolution cannot be
+repeated. These are the main ways in which genetic drift can be an
+important force in evolution of populations with small population size.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="decay-in-heterozygosity-due-to-drift">
+<h1>Decay in heterozygosity due to drift<a class="headerlink" href="#decay-in-heterozygosity-due-to-drift" title="Permalink to this headline">¶</a></h1>
+<p>While studying the full dynamics of genetic drift is difficult
+mathematically it is simple enough to follow one of the main features of
+genetic drift, the decay of heterozygosity within populations, through a
+basic model. Again we turn our attention to our favorite diploid,
+randomly mating hermaphrodites. We will first describe our population of
+<span class="math notranslate nohighlight">\(N\)</span> diploids by the variable <span class="math notranslate nohighlight">\(G\)</span> defined as the probability that two
+alleles drawn at random from our population are identical by state (e.g.
+they have the same DNA sequences). Our population is made up of what we
+call exchangeable or neutral alleles, meaning that alleles are
+equivalent from the perspective of fitness- no selection is acting. <span class="math notranslate nohighlight">\(G\)</span>
+is very similar to our measure of Homozygosity that we described earlier
+in the course. When there is no variation in the population <span class="math notranslate nohighlight">\(G = 1\)</span>,
+conversely when every allele is unique <span class="math notranslate nohighlight">\(G=0\)</span>.</p>
+<p>We can write down the value of <span class="math notranslate nohighlight">\(G\)</span> after one round of random mating and
+drift, <span class="math notranslate nohighlight">\(G'\)</span>, as a function of its current value and the population size</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+G'= \frac{1}{2N} + \left(1 - \frac{1}{2N} \right )G
+\end{aligned}\]</div>
+<p>This equation spells out in its two terms the mutually exclusive ways in
+which we can sample two alleles that are identical by state (this is
+also illustrated graphically in the slides associated with this
+lecture). One way is to sample two alleles who shared a common ancestor
+in the generation before. The probability that two alleles share a
+common ancestor in the previous generation is <span class="math notranslate nohighlight">\(1/(2N)\)</span>. This is simple
+enough to understand- given that you’ve chosen one allele, the
+probability that the next allele has the same parent is just <span class="math notranslate nohighlight">\(1/(2N)\)</span>
+because all parents are equally likely. The second way to sample two
+alleles that are identical by state is to choose two alleles who don’t
+share a parent (i.e. <span class="math notranslate nohighlight">\(1-1/(2N)\)</span>), but who’s parents were themselves
+identical by state (by definition this probability is <span class="math notranslate nohighlight">\(G\)</span>). These leaves
+us with the probability of the second event being <span class="math notranslate nohighlight">\([1-1/(2N)]G\)</span>. As the
+two ways of picking alleles identical by state are mutually exclusive we
+take the sums of their probabilities and we arrive at <span class="math notranslate nohighlight">\(G'\)</span>. Nice right?</p>
+<p>As is frequent in our population genetic models, I’m going to pull a bit
+of a bait and switch on you. We just defined the probability of choosing
+alleles identical by state, but now lets focus on the converse, the
+probability that you choose two alleles which <em>differ</em> by state. The is
+both instructive and easier to work with. Define <span class="math notranslate nohighlight">\(H\)</span> to be the
+probability that two randomly sampled allele are different by state
+(i.e. different DNA sequences), and notice that <span class="math notranslate nohighlight">\(H\)</span> is very similar to
+heterozygosity that we had defined earlier. By definition, <span class="math notranslate nohighlight">\(H = 1-G\)</span>,
+which implies that</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    H' = 1-G' = \left (1-\frac{1}{2N} \right)H
+\end{aligned}\]</div>
+<p>Now let’s do what comes naturally and look at how <span class="math notranslate nohighlight">\(H\)</span> changes per
+generation. We’ll call this change in heterozygosity <span class="math notranslate nohighlight">\(\Delta_NH\)</span> to draw
+attention to the fact that population size is what’s leading to the
+change in <span class="math notranslate nohighlight">\(H\)</span>. So</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \Delta_NH &amp; = &amp; H' - H \\
+        &amp; = &amp; \left(1 - \frac{1}{2N} \right)H -H \\
+    &amp; = &amp; -\frac{1}{2N}H
+\end{aligned}\end{split}\]</div>
+<p>Immediately we can see something
+about how population size should dictate <span class="math notranslate nohighlight">\(H\)</span> in finite populations. The
+probability that two alleles are different by state decreases at a rate
+<span class="math notranslate nohighlight">\(1/(2N)\)</span> per generation. This implies that large populations will lose
+variation more slowly than small populations due to drift, however they
+will eventually lose all of their variation.</p>
+<p>We can also describe the decay in heterozygosity as a difference
+equation which captures all of the same dynamics from some initial
+condition <span class="math notranslate nohighlight">\(H_0\)</span> until some time <span class="math notranslate nohighlight">\(t\)</span> at which heterozygosity has
+decreased to <span class="math notranslate nohighlight">\(H_t\)</span>
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+    H_t = H_0 \left(1 - \frac{1}{2N} \right)^t
+\end{aligned}\)</span>$</p>
+<p>Here we
+see that the decay in <span class="math notranslate nohighlight">\(H\)</span> is geometric. This means that the probability
+of two alleles being different by state monotonically decreases, however
+it never reaches exactly zero. As an exercise write down the half-life
+of heterozygosity using this difference equation, that is solve for the
+time until <span class="math notranslate nohighlight">\(H\)</span> decreases to half it’s original value <span class="math notranslate nohighlight">\(H_0/2\)</span>.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="fixation-probability-of-a-neutral-mutation">
+<h1>Fixation Probability of a neutral mutation<a class="headerlink" href="#fixation-probability-of-a-neutral-mutation" title="Permalink to this headline">¶</a></h1>
+<p>Quick detour to the world of molecular evolution. If drift means that
+ultimately alleles are fixed or lost from populations, which allele
+<span class="math notranslate nohighlight">\(A_1\)</span> or <span class="math notranslate nohighlight">\(A_2\)</span> gets to fix? Asked another way, what is the probability
+that an allele will fix in a population? This probability is known as
+the fixation probability and it has a special place in the world of
+population genetics and molecular evolution.</p>
+<p>Let’s consider our idealized population of <span class="math notranslate nohighlight">\(2N\)</span> completely neutral,
+exchangeable alleles. Lets start with the case when <span class="math notranslate nohighlight">\(H=1\)</span> and each
+allele is unique in the population. We know that this population, like
+all populations which drift, will eventually go to <span class="math notranslate nohighlight">\(H=0\)</span> and in so doing
+fix an allele. The chance that any particular allele among our <span class="math notranslate nohighlight">\(2N\)</span>
+unique alleles will be that survivor is <span class="math notranslate nohighlight">\(1/(2N)\)</span>, as they are all
+exchangeable. If instead there were <span class="math notranslate nohighlight">\(i\)</span> copies of some allele, the
+chance that it would be chosen to fix would be <span class="math notranslate nohighlight">\(i/(2N)\)</span>. Written another
+way, if the frequency of <span class="math notranslate nohighlight">\(A_1\)</span> is <span class="math notranslate nohighlight">\(p\)</span> in a population, then the
+frequency that <span class="math notranslate nohighlight">\(A_1\)</span> fixes is <span class="math notranslate nohighlight">\(p\)</span>. Thus the probability of fixation of a
+neutral allele at frequency <span class="math notranslate nohighlight">\(p\)</span> in the current population is</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    Prob(fix|p) = \pi(p) = p
+\end{aligned}\]</div>
+<p>This probability will play an important role in our study of molecular
+evolution, but for now just marvel at the symmetry of neutral evolution.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mutation-and-drift">
+<h1>Mutation and Drift<a class="headerlink" href="#mutation-and-drift" title="Permalink to this headline">¶</a></h1>
+<p>Ultimately genetic drift is a force acting to remove variation from
+populations, so why does genetic variation persist in populations? The
+answer is of course mutation. Mutations form the raw stuff in evolution,
+and the balance between mutation and drift will occupy our attention
+when we study molecular evolution. The Neutral Theory of Molecular
+Evolution, formalized by Motoo Kimura, says that main the forces acting
+on populations are drift and mutation, and that DNA sequence differences
+between individuals and species are mostly neutral mutations. Here will
+develop the mathematical models which underlie neutral variation within
+species</p>
+<p>First we’ll turn our attention back to <span class="math notranslate nohighlight">\(G\)</span>, the probability that two
+alleles are identical by state (i.e. have the same DNA sequence). The
+value of <span class="math notranslate nohighlight">\(G\)</span> after one round of drift and mutation as a function of its
+current value is</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    G' = (1-u)^2\left [ \frac{1}{2N} + \left(1 - \frac{1}{2N} \right )G \right].
+\end{aligned}\]</div>
+<p>Let’s look at this for a moment. You’ll notice that the only thing that
+differs with our addition of mutation is the term <span class="math notranslate nohighlight">\((1-u)^2\)</span>. This term
+represents the probability that no mutations occurred in either of the
+alleles we sampled (<span class="math notranslate nohighlight">\((1-u)\)</span> is the probability that no mutation occurred
+in one of the alleles).</p>
+<p>Now let’s try to poke at <span class="math notranslate nohighlight">\(G'\)</span> until we can obtain an expression for
+<span class="math notranslate nohighlight">\(\Delta_{N,u}H\)</span>, the change in heterozygosity due to drift and mutation.
+This will allow us to write down an equilibrium solution for <span class="math notranslate nohighlight">\(\hat{H}\)</span>
+that will tell us something about what the heterozygosity of populations
+should be in nature. Using that fact that mutation rate, <span class="math notranslate nohighlight">\(u\)</span>, is small
+and that population size, <span class="math notranslate nohighlight">\(N\)</span>, is in comparison large, we can
+approximate <span class="math notranslate nohighlight">\(G'\)</span>. We will assume that we can ignore terms with <span class="math notranslate nohighlight">\(u/N\)</span> as
+a factor and will approximate <span class="math notranslate nohighlight">\((1-u)^2\)</span> with <span class="math notranslate nohighlight">\((1-2u)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+G' &amp; \approx &amp; (1-2u) \left [ \frac{1}{2N} + \left(1 - \frac{1}{2N} \right )G \right] \\
+&amp; \approx &amp; \frac{1}{2N} + \left ( 1 - \frac{1}{2N} \right )G - 2uG
+\end{aligned}\end{split}\]</div>
+<p>Now lets make the switch to heterozygosity using <span class="math notranslate nohighlight">\(H = 1-G\)</span> and
+rearranging to get</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    H' \approx \left( 1 - \frac{1}{2N} \right ) H + 2u(1-H).
+\end{aligned}\]</div>
+<p>Now the change in <span class="math notranslate nohighlight">\(H\)</span> in any generation is $<span class="math notranslate nohighlight">\(\Delta_{N,u}H = H' -H\)</span>$,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \Delta_{N,u}H = - \frac{1}{2N}H + 2u(1-H)
+\end{aligned}\]</div>
+<p>and at
+equilibrium <span class="math notranslate nohighlight">\(\Delta_{N,u}H = 0\)</span> and after a tiny bit of algebra</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \hat{H} = \frac{4Nu}{1+4Nu}
+\end{aligned}\]</div>
+<p>That’s what we’re after-
+a simple expression that relates heterozygosity to mutation rate and
+population size. The compound parameter <span class="math notranslate nohighlight">\(4Nu\)</span> plays an important role in
+population genetics. This can be seen clearly here. When <span class="math notranslate nohighlight">\(4Nu\)</span> is large,
+mutation dominates drift and populations retain genetic variation. When
+<span class="math notranslate nohighlight">\(4Nu\)</span> is small, drift dominates and genetic variation is driven out of
+populations. <code class="xref std std-numref docutils literal notranslate"><span class="pre">hEquil</span></code> shows this relationship graphically.</p>
+<div class="figure align-default" id="hequil">
+<img alt="_images/hEquil.png" src="_images/hEquil.png" />
+<p class="caption"><span class="caption-text"><strong>Heterozygosity as a function of <span class="math notranslate nohighlight">\(N\)</span></strong>. Expected heterozygosity under
+drift and mutation is shown as a function of <span class="math notranslate nohighlight">\(N\)</span>, where <span class="math notranslate nohighlight">\(u=10^4\)</span> is held
+constant.</span><a class="headerlink" href="#hequil" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="effective-population-size">
+<h1>Effective population size<a class="headerlink" href="#effective-population-size" title="Permalink to this headline">¶</a></h1>
+<p>In neutral populations, we can describe the rate at which the
+populations drifts by its size. Our population however is an idealized
+population of random mating hermaphrodites that remain at constant
+population size. This describes only a very small portion of real
+populations though.</p>
+<p>Multiple factors can cause populations to drift faster then their
+population size would predict. These include unequal sex ratios, changes
+in population size, variance in reproductive success, and inbreeding.
+When these things occur we describe the population by its effective
+population size, or the size that it would have to be for drift to
+proceed at its observed rate.</p>
+<p>Let’s look at changes in population size first. If a population goes
+through <span class="math notranslate nohighlight">\(i\)</span> epochs at population size <span class="math notranslate nohighlight">\(N_i\)</span>, then the effective
+population size of the population is given by the harmonic average of
+the populations sizes</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+N_e= \frac{n}{\sum_{i=1}^{n}\frac{1}{N_{i}}} &lt; \frac{1}{n} \sum_{i=1}^{n}N_{i}  
+\end{aligned}\]</div>
+<p>The harmonic average is always smaller than the arithmetic average. This
+implies that periods of time in which a population is at small size
+disproportionally affect rates of genetic drift.</p>
+<p>If populations have unequal sex ratios among breeding individuals then
+again <span class="math notranslate nohighlight">\(N_e\)</span> is modified. For example imagine the case of sea lions in
+which males guard a harem of females. Many fewer males get to breed in
+any generation than females which changes the effective number of
+alleles in a population. The relation that describes this effect is seen
+below.</p>
+<p>$<span class="math notranslate nohighlight">\(\begin{aligned}
+    N_e= \frac{4N_m N_f}{N_m + N_f}
+\end{aligned}\)</span>$ Take a look at the</p>
+<p>magnitude of <span class="math notranslate nohighlight">\(N_e\)</span> reduction in this equation versus the one we arrived
+at for changes in effective population size. Which do you think is more
+important over evolutionary time?</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Andrew Kern and Peter Ralph<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
