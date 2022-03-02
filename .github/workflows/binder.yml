@@ -1,5 +1,8 @@
 name: pg_book
-on: [push] # You may want to trigger this Action on other things than a push.
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
