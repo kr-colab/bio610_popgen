@@ -18,18 +18,19 @@ Day 3 (Wednesday, 2/23) - selection
 
 Day 4 (Friday, 2/25) - mutation, migration
 
+:
 
 Day 5 (Monday, 2/28) - drift: decay in heterozygosity, binomial sampling, exp(p') and var(p')
 
-: molecular evolution: rate of substitution under neutral model, neutral theory, rate under beneficial alleles model? MK test
+: Fst and population subdivision
 
 Day 6 (Wednesday, 3/2) -
 
-: the coalescent: derivation, population size change / Tajima's D? 
+: genetic drift and genetic diversity
 
 Day 7 (Friday, 3/4) -
 
-: non-random mating: inbreeding, population structure, F stats
+: 
 
 Day 8 (Monday, 3/7) -
 
@@ -37,7 +38,7 @@ Day 8 (Monday, 3/7) -
 
 Day 9 (Wednesday, 3/9) -
 
-:
+: molecular evolution: rate of substitution under neutral model, neutral theory, rate under beneficial alleles model? MK test
 
 Day 10 (Friday, 3/11) -
 
