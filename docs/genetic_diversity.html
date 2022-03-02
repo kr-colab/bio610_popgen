@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genetic diversity, with trees &#8212; Bio 610-- Intro to Population Genetics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exercise 1" href="exercise1.html" />
+    <link rel="prev" title="Genetic drift" href="genetic_drift.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tree.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Bio 610-- Intro to Population Genetics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to Population Genetics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Population Genetics Concepts
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1.html">
+   Introduction to Population Genetics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2.html">
+   Natural Selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3.html">
+   Mutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4.html">
+   Migration and Gene Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5.html">
+   Molecular Evolution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genetic_drift.html">
+   Genetic drift
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Genetic diversity, with trees
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise1.html">
+   Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise2.html">
+   Exercise 2
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/genetic_diversity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kr-colab/bio610_popgen"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kr-colab/bio610_popgen/issues/new?title=Issue%20on%20page%20%2Fgenetic_diversity.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kr-colab/bio610_popgen/main?urlpath=lab/tree/book/genetic_diversity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drift-mutation-balance-again">
+   Drift-mutation balance, again
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Genetic diversity, with trees</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drift-mutation-balance-again">
+   Drift-mutation balance, again
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="genetic-diversity-with-trees">
+<h1>Genetic diversity, with trees<a class="headerlink" href="#genetic-diversity-with-trees" title="Permalink to this headline">¶</a></h1>
+<p>Before we measured genetic diversity
+using expected heterozygosity,
+which is the proportion of sites that differ between two randomly chosen genomes:
+for a genome of length <span class="math notranslate nohighlight">\(L\)</span>, with allele frequency <span class="math notranslate nohighlight">\(p_i\)</span> at the <span class="math notranslate nohighlight">\(i^\text{th}\)</span> site, this is:
+$<span class="math notranslate nohighlight">\(
+  \pi = \frac{1}{L}\sum_{i=1}^L 2 p_i (1-p_i) .
+\)</span>$</p>
+<p>We’ll now derive this in a different way.
+First, let’s think about where the differences between trees come from.
+As we saw before, they come from mutation, somewhere -
+concretely, they come from mutations that happened
+somewhere on the path from the two genomes
+back up to their common ancestor.
+(If there weren’t any mutations, then they’d be identical;
+if there’s only one mutation, then they differ,
+and if there was more than one mutation then it depends,
+but this is rare and we mostly ignore it.)</p>
+<p>Let’s have a look at this in a small example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> slim_magic
+
+<span class="kn">import</span> <span class="nn">tskit</span><span class="o">,</span> <span class="nn">pyslim</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">slim_ts</span> --out ts
+initialize()
+{
+    setSeed(123);
+    initializeTreeSeq();
+    initializeMutationRate(7e-8);
+    initializeMutationType(&quot;m1&quot;, 0.5, &quot;f&quot;, 0.0);
+    initializeGenomicElementType(&quot;g1&quot;, c(m1), c(1.0));
+    initializeGenomicElement(g1, 0, 99999);
+    initializeRecombinationRate(1e-8);
+    suppressWarnings(T);
+}
+
+1 {
+    sim.addSubpop(&quot;p1&quot;, 500);
+}
+
+3000 late() {
+    sim.treeSeqOutput(&quot;tmp.trees&quot;);
+    sim.simulationFinished();
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>What we get here is a <em>tree sequence</em>:
+see <a class="reference external" href="https://tskit.dev/tutorials/intro.html">this tutorial</a> for an introduction,
+and <a class="reference external" href="https://tskit.dev/tskit/docs/stable/introduction.html">the documentation</a>
+for what you can do with them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div>
+  <style>
+    .tskit-table thead tr th {text-align: left;padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td {padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td:first-of-type {text-align: left;}
+    .tskit-details-label {vertical-align: top; padding-right:5px;}
+    .tskit-table-set {display: inline-flex;flex-wrap: wrap;margin: -12px 0 0 -12px;width: calc(100% + 12px);}
+    .tskit-table-set-table {margin: 12px 0 0 12px;}
+    details {display: inline-block;}
+    summary {cursor: pointer; outline: 0; display: list-item;}
+  </style>
+  <div class="tskit-table-set">
+    <div class="tskit-table-set-table">
+      <table class="tskit-table">
+        <thead>
+          <tr>
+            <th style="padding:0;line-height:21px;">
+              <img style="height: 32px;display: inline-block;padding: 3px 5px 3px 0;" src="https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg"/>
+              <a target="_blank" href="https://tskit.dev/tskit/docs/latest/python-api.html#the-treesequence-class"> Tree Sequence </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Trees</td><td>15</td></tr>
+          <tr><td>Sequence Length</td><td>100000.0</td></tr>
+          <tr><td>Time Units</td><td>generations</td></tr>
+          <tr><td>Sample Nodes</td><td>1000</td></tr>
+          <tr><td>Total Size</td><td>208.9 KiB</td></tr>
+          <tr>
+            <td>Metadata</td><td style="text-align: left;">
+    <div>
+      <span class="tskit-details-label"></span>
+      <details open>
+        <summary>dict</summary>
+
+    <div>
+      <span class="tskit-details-label">SLiM:</span>
+      <details >
+        <summary>dict</summary>
+        file_version: 0.7<br/>generation: 3000<br/>model_type: WF<br/>nucleotide_based: False<br/>separate_sexes: False<br/>spatial_dimensionality: <br/>spatial_periodicity: <br/>stage: late<br/>
+      </details>
+    </div>
+    <br/>
+      </details>
+    </div>
+    </td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tskit-table-set-table">
+      <table class="tskit-table">
+        <thead>
+          <tr>
+            <th style="line-height:21px;">Table</th>
+            <th>Rows</th>
+            <th>Size</th>
+            <th>Has Metadata</th>
+          </tr>
+        </thead>
+        <tbody>
+
+      <tr>
+        <td>Edges</td>
+          <td>1855</td>
+          <td>58.0 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Individuals</td>
+          <td>500</td>
+          <td>50.6 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Migrations</td>
+          <td>0</td>
+          <td>8 Bytes</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Mutations</td>
+          <td>129</td>
+          <td>8.5 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Nodes</td>
+          <td>1818</td>
+          <td>68.1 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Populations</td>
+          <td>2</td>
+          <td>2.4 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Provenances</td>
+          <td>1</td>
+          <td>2.1 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Sites</td>
+          <td>129</td>
+          <td>3.0 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div></div>
+</div>
+<p>Let’s suppose we take a sample of just 3 diploids from this population,
+so we can easily look at their genealogies and genotypes.
+We can do this with the <code class="docutils literal notranslate"><span class="pre">simplify(</span> <span class="pre">)</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">generate_nucleotides</span><span class="p">(</span><span class="n">sts</span><span class="p">)</span>
+<span class="n">sts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">convert_alleles</span><span class="p">(</span><span class="n">sts</span><span class="p">)</span>
+<span class="n">sts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div>
+  <style>
+    .tskit-table thead tr th {text-align: left;padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td {padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td:first-of-type {text-align: left;}
+    .tskit-details-label {vertical-align: top; padding-right:5px;}
+    .tskit-table-set {display: inline-flex;flex-wrap: wrap;margin: -12px 0 0 -12px;width: calc(100% + 12px);}
+    .tskit-table-set-table {margin: 12px 0 0 12px;}
+    details {display: inline-block;}
+    summary {cursor: pointer; outline: 0; display: list-item;}
+  </style>
+  <div class="tskit-table-set">
+    <div class="tskit-table-set-table">
+      <table class="tskit-table">
+        <thead>
+          <tr>
+            <th style="padding:0;line-height:21px;">
+              <img style="height: 32px;display: inline-block;padding: 3px 5px 3px 0;" src="https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg"/>
+              <a target="_blank" href="https://tskit.dev/tskit/docs/latest/python-api.html#the-treesequence-class"> Tree Sequence </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Trees</td><td>6</td></tr>
+          <tr><td>Sequence Length</td><td>100000.0</td></tr>
+          <tr><td>Time Units</td><td>generations</td></tr>
+          <tr><td>Sample Nodes</td><td>6</td></tr>
+          <tr><td>Total Size</td><td>112.7 KiB</td></tr>
+          <tr>
+            <td>Metadata</td><td style="text-align: left;">
+    <div>
+      <span class="tskit-details-label"></span>
+      <details open>
+        <summary>dict</summary>
+
+    <div>
+      <span class="tskit-details-label">SLiM:</span>
+      <details >
+        <summary>dict</summary>
+        file_version: 0.7<br/>generation: 3000<br/>model_type: WF<br/>nucleotide_based: False<br/>separate_sexes: False<br/>spatial_dimensionality: <br/>spatial_periodicity: <br/>stage: late<br/>
+      </details>
+    </div>
+    <br/>
+      </details>
+    </div>
+    </td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tskit-table-set-table">
+      <table class="tskit-table">
+        <thead>
+          <tr>
+            <th style="line-height:21px;">Table</th>
+            <th>Rows</th>
+            <th>Size</th>
+            <th>Has Metadata</th>
+          </tr>
+        </thead>
+        <tbody>
+
+      <tr>
+        <td>Edges</td>
+          <td>25</td>
+          <td>808 Bytes</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Individuals</td>
+          <td>3</td>
+          <td>2.1 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Migrations</td>
+          <td>0</td>
+          <td>8 Bytes</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Mutations</td>
+          <td>39</td>
+          <td>3.3 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Nodes</td>
+          <td>14</td>
+          <td>1.2 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Populations</td>
+          <td>1</td>
+          <td>2.3 KiB</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Provenances</td>
+          <td>2</td>
+          <td>2.5 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Sites</td>
+          <td>39</td>
+          <td>991 Bytes</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SVG</span><span class="p">(</span><span class="n">sts</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">400</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/genetic_diversity_8_0.svg" src="_images/genetic_diversity_8_0.svg" /></div>
+</div>
+<p>There are 38 sites (out of 100kb) at which we have mutations.
+Some of these (shown on the roots of the trees above) are fixed in this sample,
+i.e., don’t differ between these six genomes.</p>
+<p>Now, let’s look at the six genotypes at these 38 sites:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sts</span><span class="o">.</span><span class="n">haplotypes</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sample </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample 0:  CTAACGTAGCTCTTTACTCATTTAGCAAGAAATATTATT
+sample 1:  CTAACGTAGCTCTGTACTCATTTAATAGGATTTCTTAGC
+sample 2:  CTAACGCCGGTCTTAATTCATTTAGTGGGAAATCTTAGC
+sample 3:  CTAACGCCCGTCTTAATTGACCTAGTAGGAAATATTAGC
+sample 4:  CTAACGCCGCTCTTTATTCATTTAGTAGGAAACAAAATC
+sample 5:  CCAACGCCGGGCTTAACTCATTTAGTAAGAAATATTATC
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected heterozygosity in the subsample is </span><span class="si">{</span><span class="n">sts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">:</span><span class="s2">.2g</span><span class="si">}</span><span class="s2">, &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;while in the entire population it was </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">:</span><span class="s2">.2g</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected heterozygosity in the subsample is 9.9e-05, while in the entire population it was 0.00012.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong>
+Compute heterozygosity in this subsample by hand
+by looking at the genotypes above.
+(<em>Hint:</em> sum up <span class="math notranslate nohighlight">\(2p_i(1-p_i)\)</span> and divide by the genome length.)</p>
+<div class="section" id="drift-mutation-balance-again">
+<h2>Drift-mutation balance, again<a class="headerlink" href="#drift-mutation-balance-again" title="Permalink to this headline">¶</a></h2>
+<p>Let’s derive the expression we got for equilibrium genetic diversity
+again, but this time looking at the trees.
+We want to know <em>what’s the probability that two genomes differ at a given site?</em>
+Well, suppose the two genomes live at the same time (call it “today”),
+and their most recent common ancestor lived <span class="math notranslate nohighlight">\(T\)</span> generations ago.
+So, there were <span class="math notranslate nohighlight">\(2T\)</span> reproduction events during which a mutation would have been inherited by
+one and not the other of the genomes.
+Let’s use a different simplified mutation model this time:
+the <em>infinite sites</em> model,
+assuming that we can count up <em>all</em> mutations that differ between the two genomes.
+(This differs from the previous model, where two mutations could cancel each other out.)
+Afterwards, we can see how much of an effect the unrealistic parts
+of this model might have.</p>
+<p>The number of mutations, <span class="math notranslate nohighlight">\(M\)</span>, has a Binomial distribution
+with sample size <span class="math notranslate nohighlight">\(2T\)</span> and probability <span class="math notranslate nohighlight">\(\mu\)</span>,
+so the expected number of mutations per site
+(i.e., the heterozygosity) is
+$<span class="math notranslate nohighlight">\(
+   \pi = \mathbb{E}\left[ 2 T \mu \right] .
+\)</span>$</p>
+<p>So, what is <span class="math notranslate nohighlight">\(\mathbb{E}[T]\)</span>?
+Well, under the Wright-Fisher model,
+the probability that two genomes find their common ancestor each generation is <span class="math notranslate nohighlight">\(1/2N\)</span>,
+and so
+$<span class="math notranslate nohighlight">\(
+  \mathbb{P}\left\{ T &gt; t \right\} = (1 - 1/2N)^t .
+\)</span><span class="math notranslate nohighlight">\(
+This is the [Geometric distribution](https://en.wikipedia.org/wiki/Geometric_distribution),
+and has mean \)</span>\mathbb{E}[T] = 2N<span class="math notranslate nohighlight">\(.
+This implies that, precisely under this model of mutation,
+\)</span><span class="math notranslate nohighlight">\(
+  \pi = 4 N \mu .
+\)</span>$</p>
+<p>This agrees with our previous calculation!
+The advantage to this one is that it brings the trees into focus:
+we see that heterozygosity
+is equal, on average, to <span class="math notranslate nohighlight">\(4 \mu\)</span> times the mean time to most recent common ancestor.
+This fact is much more general than the Wright-Fisher model.</p>
+<p>And, along the way, we’ve learned that the mean pairwise time to most recent common ancestor
+in a Wright-Fisher population of size <span class="math notranslate nohighlight">\(N\)</span> is <span class="math notranslate nohighlight">\(2N\)</span> generations.
+This is very useful!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="genetic_drift.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Genetic drift</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="exercise1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise 1</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Andrew Kern and Peter Ralph<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -12,6 +12,7 @@ parts:
   - file: lecture4
   - file: lecture5
   - file: genetic_drift
+  - file: genetic_diversity
 - caption: Exercises
   chapters:
   - file: exercise1
