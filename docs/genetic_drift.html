@@ -42,15 +42,14 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Genetic diversity, with trees" href="genetic_diversity.html" />
@@ -484,28 +483,32 @@ Well, think about how the WF model works:
 each offspring genome is produced by a uniformly randomly selected parent genome
 (independently of everything else).
 So, if <span class="math notranslate nohighlight">\(X_t\)</span> is the number of copies of the allele we’re counting at generation <span class="math notranslate nohighlight">\(t\)</span>,
-then
-$<span class="math notranslate nohighlight">\(
+then</p>
+<div class="math notranslate nohighlight">
+\[
    X_{t+1} \sim \text{Binomial}(2N, X_t/2N) .
-\)</span><span class="math notranslate nohighlight">\(
-In other words, we get the next generation &quot;by binomial sampling&quot;.
-Since the allele frequency is \)</span>P_t = X_t/2N<span class="math notranslate nohighlight">\(,
-then given this,
-\)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\]</div>
+<p>In other words, we get the next generation “by binomial sampling”.
+Since the allele frequency is <span class="math notranslate nohighlight">\(P_t = X_t/2N\)</span>,
+then given this,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   \mathbb{E}[X_{t+1}] &amp;= X_t \\
   \mathbf{var}[X_{t+1}] &amp;= X_t (1 - X_t / 2N) ,
-\end{aligned}\)</span><span class="math notranslate nohighlight">\(
-and so
-\)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\end{aligned}\end{split}\]</div>
+<p>and so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   \mathbb{E}[P_{t+1}] &amp;= P_t \\
   \mathbf{var}[P_{t+1}] &amp;= P_t (1 - P_t) / 2N .
-\end{aligned}\)</span>$</p>
+\end{aligned}\end{split}\]</div>
 <p>If we assume that the frequency doesn’t change too much over time,
-then
-$<span class="math notranslate nohighlight">\(\begin{aligned}
+then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   \mathbb{E}[P_{t}] &amp;= P_0 \\
   \mathbf{var}[P_{t}] &amp;\approx t P_0 (1 - P_0) / 2N .
-\end{aligned}\)</span>$</p>
+\end{aligned}\end{split}\]</div>
 <div class="section" id="exercise">
 <h3>Exercise:<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
 <p>Put the “theory” lines on the plots above.</p>
@@ -618,8 +621,9 @@ and each mutates to the other with probability <span class="math notranslate noh
 Then, the probability that siblings differ at a site is <span class="math notranslate nohighlight">\(2 \mu (1-\mu)\)</span>.
 Since the probability under the Wright-Fisher model that the two genomes are siblings
 at a given site is <span class="math notranslate nohighlight">\(1/2N\)</span>,
-the previous paragraph says that
-$<span class="math notranslate nohighlight">\(
+the previous paragraph says that</p>
+<div class="math notranslate nohighlight">
+\[
     \pi_{t+1} = 
         \frac{1}{2N} 2 \mu (1-\mu)
         + \left(1 - \frac{1}{2N} \right)
@@ -627,23 +631,25 @@ $<span class="math notranslate nohighlight">\(
               \pi_t (1 - 2 \mu (1-\mu))
               + (1 - \pi_t) 2 \mu (1-\mu)
           \right\} .
-\)</span><span class="math notranslate nohighlight">\(
-Here the terms are:
+\]</div>
+<p>Here the terms are:
 share parents and mutation;
 parents differ and no mutation;
 parents do not differ and mutation.
-Rearranging, this is
-\)</span><span class="math notranslate nohighlight">\(
+Rearranging, this is</p>
+<div class="math notranslate nohighlight">
+\[
     \pi_{t+1} = 
         2 \mu (1-\mu)
         + \left(1 - \frac{1}{2N} \right)
               (1 - 4 \mu (1-\mu))
               \pi_t .
-\)</span>$</p>
+\]</div>
 <p>To solve for stationarity,
 let’s ask what value of <span class="math notranslate nohighlight">\(\pi_*\)</span> would have <span class="math notranslate nohighlight">\(\pi_t = \pi_{t+1} = \pi_*\)</span>.
-Solving for <span class="math notranslate nohighlight">\(\pi_*\)</span>, we get
-$<span class="math notranslate nohighlight">\(\begin{aligned}
+Solving for <span class="math notranslate nohighlight">\(\pi_*\)</span>, we get</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
     \pi_* &amp;=
     \frac{
         4 N \mu (1 - \mu)
@@ -651,7 +657,7 @@ $<span class="math notranslate nohighlight">\(\begin{aligned}
         1 + 4 \mu (1 - \mu)(2 N - 1)
     } \\
     &amp;\approx 4 N \mu .
-\end{aligned}\)</span>$</p>
+\end{aligned}\end{split}\]</div>
 <p><strong>Exercise:</strong>
 Add the theory curves to the plot above.</p>
 </div>
@@ -670,10 +676,11 @@ The chance that the mutation picks that one lucky “ultimate ancestor”
 is just <span class="math notranslate nohighlight">\(1/2N\)</span>.</p>
 <p>So, if we write <span class="math notranslate nohighlight">\(p_f(s)\)</span> for the probability of fixation
 of a new mutation with selection coefficient <span class="math notranslate nohighlight">\(s\)</span>,
-then in a population of diploid size <span class="math notranslate nohighlight">\(N\)</span>,
-$<span class="math notranslate nohighlight">\(
+then in a population of diploid size <span class="math notranslate nohighlight">\(N\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
   p_f(0) = \frac{1}{2N} .
-\)</span>$</p>
+\]</div>
 <p><strong>Exercise:</strong> Check this, with a simulation.</p>
 </div>
 

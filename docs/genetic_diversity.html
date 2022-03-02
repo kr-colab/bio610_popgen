@@ -42,15 +42,14 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exercise 1" href="exercise1.html" />
@@ -304,10 +303,11 @@
 <p>Before we measured genetic diversity
 using expected heterozygosity,
 which is the proportion of sites that differ between two randomly chosen genomes:
-for a genome of length <span class="math notranslate nohighlight">\(L\)</span>, with allele frequency <span class="math notranslate nohighlight">\(p_i\)</span> at the <span class="math notranslate nohighlight">\(i^\text{th}\)</span> site, this is:
-$<span class="math notranslate nohighlight">\(
+for a genome of length <span class="math notranslate nohighlight">\(L\)</span>, with allele frequency <span class="math notranslate nohighlight">\(p_i\)</span> at the <span class="math notranslate nohighlight">\(i^\text{th}\)</span> site, this is:</p>
+<div class="math notranslate nohighlight">
+\[
   \pi = \frac{1}{L}\sum_{i=1}^L 2 p_i (1-p_i) .
-\)</span>$</p>
+\]</div>
 <p>We’ll now derive this in a different way.
 First, let’s think about where the differences between trees come from.
 As we saw before, they come from mutation, somewhere -
@@ -686,12 +686,12 @@ i.e., don’t differ between these six genomes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample 0:  GTATTCTCCCCAGCGAGGCGTCGTGTAAAAATATTTCCT
-sample 1:  GTATTCTCCCCAGTGAGGCGTCGTAGACAACCAGTTCAC
-sample 2:  GTATTCGTCGCAGCAACGCGTCGTGGCCAAATAGTTCAC
-sample 3:  GTATTCGTAGCAGCAACGGGCTGTGGACAAATATTTCAC
-sample 4:  GTATTCGTCCCAGCGACGCGTCGTGGACAAATCTGGCCC
-sample 5:  GGATTCGTCGGAGCAAGGCGTCGTGGAAAAATATTTCCC
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample 0:  CGGGCAACTGCTGTTTCTACCCGCGCAAGTGGACAAATA
+sample 1:  CGGGCAACTGCTGCTTCTACCCGCTAAGGTAAAAAAAAG
+sample 2:  CGGGCACTTTCTGTGTATACCCGCGACGGTGGAAAAAAG
+sample 3:  CGGGCACTCTCTGTGTATCCGAGCGAAGGTGGACAAAAG
+sample 4:  CGGGCACTTGCTGTTTATACCCGCGAAGGTGGTCTTATG
+sample 5:  CCGGCACTTTTTGTGTCTACCCGCGAAAGTGGACAAATG
 </pre></div>
 </div>
 </div>
@@ -731,23 +731,26 @@ of this model might have.</p>
 <p>The number of mutations, <span class="math notranslate nohighlight">\(M\)</span>, has a Binomial distribution
 with sample size <span class="math notranslate nohighlight">\(2T\)</span> and probability <span class="math notranslate nohighlight">\(\mu\)</span>,
 so the expected number of mutations per site
-(i.e., the heterozygosity) is
-$<span class="math notranslate nohighlight">\(
+(i.e., the heterozygosity) is</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
    \pi = \mathbb{E}\left[ 2 T \mu \right] .
-\)</span>$</p>
+\end{aligned}\]</div>
 <p>So, what is <span class="math notranslate nohighlight">\(\mathbb{E}[T]\)</span>?
 Well, under the Wright-Fisher model,
 the probability that two genomes find their common ancestor each generation is <span class="math notranslate nohighlight">\(1/2N\)</span>,
-and so
-$<span class="math notranslate nohighlight">\(
-  \mathbb{P}\left\{ T &gt; t \right\} = (1 - 1/2N)^t .
-\)</span><span class="math notranslate nohighlight">\(
-This is the Geometric distribution,
-and has mean \)</span>\mathbb{E}[T] = 2N<span class="math notranslate nohighlight">\(.
-This implies that, precisely under this model of mutation,
-\)</span><span class="math notranslate nohighlight">\(
-  \pi = 4 N \mu .
-\)</span>$</p>
+and so</p>
+<div class="math notranslate nohighlight">
+\[
+   \mathbb{P}\left\{ T &gt; t \right\} = (1 - 1/2N)^t .
+\]</div>
+<p>This is the Geometric distribution,
+and has mean <span class="math notranslate nohighlight">\(\mathbb{E}[T] = 2N\)</span>.
+This implies that, precisely under this model of mutation,</p>
+<div class="math notranslate nohighlight">
+\[
+   \pi = 4 N \mu .
+\]</div>
 <p>This agrees with our previous calculation!
 The advantage to this one is that it brings the trees into focus:
 we see that heterozygosity
