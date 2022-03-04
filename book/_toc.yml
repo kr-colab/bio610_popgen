@@ -10,9 +10,9 @@ parts:
   - file: lecture2
   - file: lecture3
   - file: lecture4
-  - file: lecture5
   - file: genetic_drift
   - file: genetic_diversity
+  - file: molecular_evolution
 - caption: Exercises
   chapters:
   - file: exercise1
