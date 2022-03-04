@@ -5,9 +5,11 @@ dependencies:
   - python==3.8
   - pip
   - slim==3.7.1
+  - jupyter
+  - jupyter-book
   - pip:
     - pandas
-    - mamba
+    - pyslim
     - numpy
     - matplotlib
     - msprime

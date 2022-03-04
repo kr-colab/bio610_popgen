@@ -10,3 +10,4 @@ docs/.book_build : $(wildcard book/*.ipynb) $(wildcard book/_*.yml)
 
 clean : 
 	jupyter-book clean book/
+	rm docs/.book_build
