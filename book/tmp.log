@@ -1,5 +1,5 @@
 // Initial random seed:
-1715629478716
+1725139616937
 
 // RunInitializeCallbacks():
 initializeMutationRate(1e-06);
@@ -13,4 +13,4 @@ initializeRecombinationRate(1e-08);
 1 
 
 generation,numFixations
-20000,122
+20000,147
