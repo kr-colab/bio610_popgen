@@ -13,6 +13,7 @@ parts:
   - file: genetic_drift
   - file: genetic_diversity
   - file: molecular_evolution
+  - file: fixation_probabilities
 - caption: Exercises
   chapters:
   - file: exercise1
