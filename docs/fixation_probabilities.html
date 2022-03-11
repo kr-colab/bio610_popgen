@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probabilities of fixation &#8212; Bio 610-- Intro to Population Genetics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exercise 1" href="exercise1.html" />
+    <link rel="prev" title="Genetic diversity, with trees" href="genetic_diversity.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tree.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Bio 610-- Intro to Population Genetics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to Population Genetics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Population Genetics Concepts
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1.html">
+   Introduction to Population Genetics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2.html">
+   Natural Selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3.html">
+   Mutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4.html">
+   Migration and Gene Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genetic_drift.html">
+   Genetic drift
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genetic_diversity.html">
+   Genetic diversity, with trees
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Probabilities of fixation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise1.html">
+   Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercise2.html">
+   Exercise 2
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/fixation_probabilities.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kr-colab/bio610_popgen"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kr-colab/bio610_popgen/issues/new?title=Issue%20on%20page%20%2Ffixation_probabilities.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kr-colab/bio610_popgen/main?urlpath=lab/tree/book/fixation_probabilities.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-branching-process">
+   A branching process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wright-fisher-with-selection">
+   Wright-Fisher with selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#putting-it-together">
+   Putting it together
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Probabilities of fixation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-branching-process">
+   A branching process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wright-fisher-with-selection">
+   Wright-Fisher with selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#putting-it-together">
+   Putting it together
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="probabilities-of-fixation">
+<h1>Probabilities of fixation<a class="headerlink" href="#probabilities-of-fixation" title="Permalink to this headline">¶</a></h1>
+<p>The <em>total</em> influx of mutations into a population scales with the population size,
+since with each new individual there is a chance of a new mutation occurring.
+Concretely, in a diploid population of size <span class="math notranslate nohighlight">\(N\)</span> with a genome of length <span class="math notranslate nohighlight">\(L\)</span>
+with mutation rate <span class="math notranslate nohighlight">\(\mu\)</span> per base per generation,
+there are <span class="math notranslate nohighlight">\(2N \mu L\)</span> new mutations that enter each generation.
+However, we showed that a neutral mutation has probability <span class="math notranslate nohighlight">\(p_f(0) = 1/2N\)</span> of reaching fixation:
+so, the rate of fixation of new, neutral mutations does not depend on population size
+– it is just <span class="math notranslate nohighlight">\(\mu\)</span> per base pair per generation.
+This makes sense, because if you consider tracing back the lineage of an individual through time,
+then any mutations that occur on this lineage past the population’s TMRCA
+will be fixations - and, this lineage only passes through one genome per generation.</p>
+<p>But, what about natural selection?
+Since a beneficial allele’s frequency tends to increase,
+positive selection <em>ought</em> to increase the chance of fixation.
+Here, we’ll work out the probability of fixation of a newly mutated allele
+with additive selection coefficient <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<div class="section" id="a-branching-process">
+<h2>A branching process<a class="headerlink" href="#a-branching-process" title="Permalink to this headline">¶</a></h2>
+<p>To do this, we’ll start out with a simple calculation that ignores a bunch of the details.
+Forget about the details of the population (especially diploidy!)
+and imagine a single “thing” of some kind
+that reproduces (by itself) and dies,
+and then each of its offspring does the same.
+The “thing” could be a viral infection (so “reproduction” is infecting someone else)
+or an individual of a species just arrived in a new habitat,
+or a newly mutated, selected allele.
+As the thing and its offspring reproduce,
+it’s family will either die out or will grow indefinitely
+(i.e., until something else happens, like herd immunity).
+Let’s call <span class="math notranslate nohighlight">\(p_f\)</span> the probability that the family grows indefinitely.</p>
+<p>Suppose the original thing has <span class="math notranslate nohighlight">\(x\)</span> offspring.
+This thing’s family dies out if and only if the families
+of all the <span class="math notranslate nohighlight">\(x\)</span> offspring die out.
+If the fate of all those <span class="math notranslate nohighlight">\(x\)</span> families are independent of each other,
+then this happens with probability
+$<span class="math notranslate nohighlight">\(  (1 - p_f)^x . \)</span><span class="math notranslate nohighlight">\(
+(Note that this works with \)</span>x=0<span class="math notranslate nohighlight">\(, in which case the family dies out immediately.)
+But, of course, the number of offspring is random:
+let's call \)</span>X<span class="math notranslate nohighlight">\( the random number of offspring.
+Averaging over the value of \)</span>X$, we get that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+1 - p_f
+  &amp;= \sum_x \mathbb{P}\{X = x\} (1 - p_f)^x \\
+  &amp;= \mathbb{E}\left[ (1 - p_f)^X \right] .
+\end{aligned}\end{split}\]</div>
+<p>Hey! That’s an equation that we can (maybe) solve for <span class="math notranslate nohighlight">\(p_f\)</span>!
+But to do it, we’ll need to figure out what the distribution of <span class="math notranslate nohighlight">\(X\)</span> is.</p>
+</div>
+<div class="section" id="wright-fisher-with-selection">
+<h2>Wright-Fisher with selection<a class="headerlink" href="#wright-fisher-with-selection" title="Permalink to this headline">¶</a></h2>
+<p>Let’s apply this to the selected allele.
+As usual, it’s much easier to work with a haploid model,
+so that when we say “individual” really we mean “individual copy of a chromosome within a diploid individual”.</p>
+<p>One way to motivate the Wright-Fisher model is to suppose that
+(a) every individual has a very large number of gametes,
+but that there’s only room in the population for exactly <span class="math notranslate nohighlight">\(2N\)</span> adults,
+so (b) the next generation is formed by a random draw of <span class="math notranslate nohighlight">\(2N\)</span> of the gametes.
+Recall the useful fact that says that
+if a large number of independent trials happens
+with small probability of success per trial,
+then it is approximately Poisson distributed.
+So, the number of offspring of a given individual is Binomial<span class="math notranslate nohighlight">\((2N, 1/2N)\)</span>,
+which has mean 1,
+but a good approximation to this is Poisson(1).</p>
+<p>Now, suppose that the benefical allele produces
+a larger proportion of the gamete pool:
+each benefical allele makes <span class="math notranslate nohighlight">\(1+s\)</span> times as many gametes
+as the original allele.
+Then, if there are <span class="math notranslate nohighlight">\(k\)</span> copies of this beneficial allele,
+the chance a given offspring is chosen out of this pool of benefical alleles
+is
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\frac{ k (1+s)}{ k (1+s) + (2N - k) }
+    &amp;= \frac{ k }{2N + ks} (1 + s) \\
+    &amp;\approx \frac{k}{2N} (1 + s) .
+\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+In other words, *each* benefical allele has a Binomial\)</span>(2N, (1+s)/2N)<span class="math notranslate nohighlight">\(
+number of offspring -- approximately, a Poisson\)</span>(1+s)$ number.</p>
+</div>
+<div class="section" id="putting-it-together">
+<h2>Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s try to solve our equation for <span class="math notranslate nohighlight">\(p_f\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+1 - p_f
+  &amp;= \mathbb{E}\left[ (1 - p_f)^X \right] ,
+\end{aligned}\]</div>
+<p>in the case that <span class="math notranslate nohighlight">\(X\)</span> is Poisson with mean <span class="math notranslate nohighlight">\(1+s\)</span>.
+Writing this out,
+and recognizing the power series for the exponential,
+<span class="math notranslate nohighlight">\(\exp(x) = \sum_{k \ge 0} x^k / k!\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbb{E}\left[ (1 - p_f)^X \right] 
+    &amp;=
+    \sum_{k=0}^\infty (1 - p_f)^k e^{-(1+s)} \frac{(1+s)^k}{k!} \\
+    &amp;=
+    e^{-(1+s)} \sum_{k=0}^\infty \frac{[(1+s)(1 - p_f)]^k}{k!} \\
+    &amp;=
+    e^{-(1+s)} e^{(1 + s)(1 - p_f)} \\
+    &amp;=
+    \exp(- p_f (1+s)) .
+\end{aligned}\end{split}\]</div>
+<p>(The other way to evaluate this sum would be to look up the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Probability-generating_function">probability generating function</a>
+of the <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>.)</p>
+<p>Plugging this in to our equation, we have that</p>
+<div class="math notranslate nohighlight">
+\[
+  1 - p_f = \exp( - p_f (1+s) ) .
+\]</div>
+<p>Unfortunately, there’s no simple way to write down the solution to this equation.
+We could solve this numerically,
+but so that we have something that’s easy to think about and remember,
+let’s approximate this: since <span class="math notranslate nohighlight">\(\exp(x) \approx 1 + x + x^2 / 2\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+  1 - p_f \approx 1 - p_f (1 + s) + p_f^2 (1 + s)^2 / 2 .
+\]</div>
+<p>Rearranging, this is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp;\approx  p_f s - p_f^2 (1 + s)^2 / 2 \\
+  &amp;= p_f \left( s - p_f (1 + s)^2 / 2 \right) .
+\end{aligned}\end{split}\]</div>
+<p>This has two solutions: <span class="math notranslate nohighlight">\(p_f = 0\)</span> or
+<span class="math notranslate nohighlight">\(  p_f = \frac{2s}{(1+s)^2}\)</span>.
+We have already gotten rid of all but the leading power of <span class="math notranslate nohighlight">\(s\)</span>
+a few times, so we might as well continue:</p>
+<div class="math notranslate nohighlight">
+\[ p_f \approx 2s .\]</div>
+<p>We’ve shown that in a Wright-Fisher population of constant size,
+a new mutation additive effect <span class="math notranslate nohighlight">\(s\)</span> on fitness
+has probability approximately <span class="math notranslate nohighlight">\(2s\)</span> of becoming common in the population.
+Notice that this <em>doesn’t depend on <span class="math notranslate nohighlight">\(N\)</span></em>!</p>
+<p><strong>Exercise:</strong>
+We showed that <span class="math notranslate nohighlight">\(p_f\)</span> is a <em>fixed point</em> of the function
+<span class="math notranslate nohighlight">\(\phi(u) = 1 - \exp(-u(1+s))\)</span>,
+i.e., <span class="math notranslate nohighlight">\(\phi(p_f) = p_f\)</span>.
+Pick a value of <span class="math notranslate nohighlight">\(s\)</span> and make a plot of this function for <span class="math notranslate nohighlight">\(0 \le u \le 1\)</span>.
+Add the <span class="math notranslate nohighlight">\(y=x\)</span> line: fixed points are where the plot of <span class="math notranslate nohighlight">\(\phi\)</span> intersects this line.
+You can find the fixed point numerically by iterating:
+start with <span class="math notranslate nohighlight">\(u = 1/2\)</span> and apply <span class="math notranslate nohighlight">\(\phi\)</span> until convergence,
+so that <span class="math notranslate nohighlight">\(p_f = \phi(\cdots \, \phi(\phi(1/2))\cdots )\)</span>.
+Add this to the plot.
+Do the same thing for a negative value of <span class="math notranslate nohighlight">\(s\)</span>. What happens?</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="genetic_diversity.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Genetic diversity, with trees</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="exercise1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise 1</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Andrew Kern and Peter Ralph<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
