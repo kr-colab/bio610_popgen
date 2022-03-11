@@ -1,0 +1,15 @@
+// Initial random seed:
+1734172642889
+
+// RunInitializeCallbacks():
+initializeMutationRate(1e-05);
+initializeMutationType(1, 0.5, "f", 0);
+initializeGenomicElementType(1, m1, 1);
+initializeGenomicElement(g1, 0, 10000);
+initializeRecombinationRate(1e-08);
+
+// Starting run at generation <start>:
+1 
+
+generation,numFixations
+10000,993
